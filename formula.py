@@ -2,75 +2,73 @@ import polars as pl
 
 
 def wr_yac_points(yac):
-    if yac > 50:
+    if yac >= 50:
         return 5
-    if yac > 30:
+    if yac >= 30:
         return 3
-    if yac > 15:
+    if yac >= 15:
         return 1
     return 0
 
 
 def receiving_yards_points(receiving_yards):
-    if receiving_yards > 200:
+    if receiving_yards >= 150:
         return 5
-    if receiving_yards > 150:
+    if receiving_yards >= 100:
         return 3
-    if receiving_yards > 100:
+    if receiving_yards >= 50:
         return 1
     return 0
 
 def receiving_tds_points(receiving_tds):
-    if receiving_tds > 2:
+    if receiving_tds >= 2:
         return 5
-    if receiving_tds > 1:
+    if receiving_tds >= 1:
         return 3
-    if receiving_tds > 0:
-        return 1
     return 0
 
 def receptions_points(receptions):
-    if receptions > 7:
+    if receptions >= 7:
         return 5
-    if receptions > 5:
+    if receptions >= 5:
         return 3
-    if receptions > 3:
+    if receptions >= 3:
         return 1
     return 0
 
 def targets_points(targets):
-    if targets > 10:
+    if targets >= 10:
         return 5
-    if targets > 7:
+    if targets >= 7:
         return 3
-    if targets > 4:
+    if targets >= 4:
         return 1
     return 0
 
 def target_share_points(target_share):
-    if target_share > 0.30:
+    if target_share >= 0.30:
         return 5
-    if target_share > 0.20:
+    if target_share >= 0.20:
         return 3
-    if target_share > 0.10:
+    if target_share >= 0.10:
         return 1
     return 0
 
 def receiving_air_yards_points(air_yards):
-    if air_yards > 150:
+    if air_yards >= 150:
         return 5
-    if air_yards > 100:
+    if air_yards >= 100:
         return 3
-    if air_yards > 50:
+    if air_yards >= 50:
         return 1
     return 0
 
 def receiving_first_downs_points(first_downs):
-    if first_downs > 6:
+    if first_downs >= 6:
         return 5
-    if first_downs > 4:
+    if first_downs >= 4:
         return 3
-    if first_downs > 2:
+    if first_downs >= 2:
         return 1
     return 0
 
@@ -85,6 +83,47 @@ def receiving_drop_points(drops):
     if drops == 1:
         return -1
     return 0
+
+def rushing_yards_points(rushing_yards):
+    if rushing_yards >= 100:
+        return 5
+    if rushing_yards >= 50:
+        return 3
+    if rushing_yards >= 25:
+        return 2
+    if rushing_yards >= 1:
+        return 1
+    return 0
+
+def rushing_tds_points(rushing_tds):
+    if rushing_tds >= 2:
+        return 5
+    if rushing_tds >= 1:
+        return 3
+    if rushing_tds > 0:
+        return 1
+    return 0
+
+def kickoff_return_yards_points(kickoff_return_yards):
+    if kickoff_return_yards >= 100:
+        return 5
+    if kickoff_return_yards >= 50:
+        return 3
+    if kickoff_return_yards >= 25:
+        return 2
+    if kickoff_return_yards >= 1:
+        return 1
+    return 0
+
+# Covers both punt- and kickoff-return TDs. There is no kickoff-only TD column;
+# the pt_* fields are punter stats (TDs allowed on that punter's punts), not returner stats.
+def special_teams_tds_points(special_teams_tds):
+    if special_teams_tds >= 2:
+        return 5
+    if special_teams_tds >= 1:
+        return 3
+    return 0
+
 
 
 def calculate_receiving_tds_points(wr_stats):
@@ -174,6 +213,38 @@ def calculate_receiving_drop_points(drops_df):
       pl.col("receiving_drop")
         .map_elements(receiving_drop_points, return_dtype=pl.Int64)
         .alias("receiving_drop_points")
+)
+
+def calculate_rushing_yards_points(rushing_stats):
+    return rushing_stats.select("player_display_name",
+  "rushing_yards").with_columns(
+      pl.col("rushing_yards")
+        .map_elements(rushing_yards_points, return_dtype=pl.Int64)
+        .alias("rushing_yards_points")
+)
+
+def calculate_rushing_tds_points(rushing_stats):
+    return rushing_stats.select("player_display_name",
+  "rushing_tds").with_columns(
+      pl.col("rushing_tds")
+        .map_elements(rushing_tds_points, return_dtype=pl.Int64)
+        .alias("rushing_tds_points")
+)
+
+def calculate_kickoff_return_yards_points(kickoff_return_stats):
+    return kickoff_return_stats.select("player_display_name",
+  "kickoff_return_yards").with_columns(
+      pl.col("kickoff_return_yards")
+        .map_elements(kickoff_return_yards_points, return_dtype=pl.Int64)
+        .alias("kickoff_return_yards_points")
+)
+
+def calculate_special_teams_tds_points(special_teams_stats):
+    return special_teams_stats.select("player_display_name",
+  "special_teams_tds").with_columns(
+      pl.col("special_teams_tds")
+        .map_elements(special_teams_tds_points, return_dtype=pl.Int64)
+        .alias("special_teams_tds_points")
 )
 
 
