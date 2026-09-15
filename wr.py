@@ -76,6 +76,6 @@ if complete:
             pl.lit(WEEK).alias("week"),
             pl.struct(score_columns).alias("score_breakdown"),
         )
-        .select("player_id", "season", "week", "total_score", "rank", "score_breakdown")
+        .select("player_id", "player_display_name", "season", "week", "total_score", "rank", "score_breakdown")
     )
     db.upsert_weekly_rankings(rankings_for_db)
