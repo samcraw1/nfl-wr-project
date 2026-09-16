@@ -42,6 +42,61 @@ def upsert_season_rankings(df):
     return get_client().table("season_rankings").upsert(rows, on_conflict="player_id,season").execute()
 
 
+def get_season_rankings(season):
+    result = (
+        get_client()
+        .table("season_rankings")
+        .select("*")
+        .eq("season", season)
+        .order("total_score", desc=True)
+        .limit(15) 
+        .execute()
+        
+    )
+    return result.data
+
+
+def get_weekly_rankings(season, week):
+    result = (
+        get_client()
+        .table('weekly_rankings')
+        .select("*")
+        .eq("season", season)
+        .eq("week", week)
+        .order("rank")
+        .limit(15)
+        .execute()
+    )
+    return result.data
+
+def get_predictions(season, week):
+    result = (
+        get_client()
+        .table('predictions')
+        .select("player_id, season, week, predicted_score, players(player_display_name)")
+        .eq("season", season)
+        .eq("week", week)
+        .order("predicted_score", desc=True)
+        .limit(15)
+        .execute()
+    )
+    rows = result.data
+    for row in rows:
+        row["player_display_name"] = row.pop("players")["player_display_name"]
+    return rows
+
+def get_weekly_wr_stats(season, week):
+    result = (
+        get_client()
+        .table('weekly_wr_stats')
+        .select("*")
+        .eq("season", season)
+        .eq("week", week)
+        .execute()
+    )
+    return result.data
+
+
 def record_model_result(
     model_version,
     model_type=None,

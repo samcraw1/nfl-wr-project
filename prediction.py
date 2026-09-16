@@ -2,6 +2,7 @@ import polars as pl
 import nflreadpy as nfl
 
 from formula import wr_formula
+import db
 
 
 def predict_wr_performance(last_game, two_games_ago, three_games_ago):
@@ -74,12 +75,48 @@ def calculate_2025_season_score_lol():
         wr_formula(
             all_stats.filter(pl.col("week") == week),
             all_drops.filter(pl.col("week") == week),
-        ).select("player_display_name", "total_score")
+        ).select("player_display_name", "total_score", "receptions", "receiving_yards", "receiving_tds")
         for week in weeks
     ]
 
     return (
         pl.concat(scored_weeks)
         .group_by("player_display_name")
-        .agg(pl.col("total_score").mean().alias("total_score"))
+        .agg(
+            pl.col("total_score").mean().alias("total_score"),
+            pl.col("receptions").sum().alias("receptions"),
+            pl.col("receiving_yards").sum().alias("receiving_yards"),
+            pl.col("receiving_tds").sum().alias("receiving_tds"),
+        )
     )
+
+
+prediction_score = predict_wr_performance_for_the_first_two_weeks_lol(
+    calculate_2025_season_score_lol(),
+    wr_formula(
+        nfl.load_player_stats([2026]).filter(pl.col("position") == "WR").filter(pl.col("week") == 1),
+        nfl.load_pfr_advstats(seasons=[2026], stat_type="rec").filter(pl.col("week") == 1),
+    ).select("player_display_name", "total_score"),
+)
+
+
+print(prediction_score.sort("predicted_score",descending=True).head(15))
+
+SEASON = 2026
+WEEK = 2
+
+player_ids = (
+    nfl.load_player_stats([SEASON])
+    .filter(pl.col("player_id").is_not_null())
+    .select("player_id", "player_display_name", "position")
+    .unique(subset=["player_id"])
+)
+
+predictions_for_db = (
+    prediction_score
+    .join(player_ids.select("player_id", "player_display_name"), on="player_display_name", how="left")
+    .with_columns(pl.lit(SEASON).alias("season"), pl.lit(WEEK).alias("week"))
+    .select("player_id", "season", "week", "predicted_score")
+)
+
+db.upsert_predictions(predictions_for_db)

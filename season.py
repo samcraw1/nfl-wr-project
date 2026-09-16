@@ -18,7 +18,7 @@ scored = (
     season_score
     .join(player_ids.select("player_id", "player_display_name"), on="player_display_name", how="left")
     .with_columns(pl.lit(SEASON).alias("season"))
-    .select("player_id", "player_display_name", "season", "total_score")
+    .select("player_id", "player_display_name", "season", "total_score", "receptions", "receiving_yards", "receiving_tds")
 )
 
 db.upsert_players(player_ids)
