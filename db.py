@@ -37,6 +37,11 @@ def upsert_predictions(df):
     return get_client().table("predictions").upsert(rows, on_conflict="player_id,season,week").execute()
 
 
+def upsert_season_rankings(df):
+    rows = df.to_dicts()
+    return get_client().table("season_rankings").upsert(rows, on_conflict="player_id,season").execute()
+
+
 def record_model_result(
     model_version,
     model_type=None,
