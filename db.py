@@ -141,14 +141,71 @@ def get_model_result_id(model_version):
     )
     return result.data["id"]
 
-def search_wrs_by_name(name, season=2025):
+def search_wrs_by_name(
+    name,
+    season=2025,
+    week=None,
+    min_receiving_yards=0,
+    min_receiving_tds=0,
+    min_receptions=0,
+):
+    if week is not None:
+        return _search_weekly_wrs_by_name(
+            name, season, week, min_receiving_yards, min_receiving_tds, min_receptions
+        )
+
     result = (
         get_client()
         .table("season_rankings")
         .select("player_display_name, season, total_score, receptions, receiving_yards, receiving_tds")
         .eq("season", season)
         .ilike("player_display_name", f"%{name}%")
+        .gte("receiving_yards", min_receiving_yards)
+        .gte("receiving_tds", min_receiving_tds)
+        .gte("receptions", min_receptions)
         .order("total_score", desc=True)
         .execute()
     )
     return result.data
+
+
+def _search_weekly_wrs_by_name(name, season, week, min_receiving_yards, min_receiving_tds, min_receptions):
+    rankings_result = (
+        get_client()
+        .table("weekly_rankings")
+        .select("player_id, player_display_name, season, week, total_score, rank")
+        .eq("season", season)
+        .eq("week", week)
+        .ilike("player_display_name", f"%{name}%")
+        .order("total_score", desc=True)
+        .execute()
+    )
+    rows = rankings_result.data
+    if not rows:
+        return rows
+
+    player_ids = [row["player_id"] for row in rows]
+    stats_result = (
+        get_client()
+        .table("weekly_wr_stats")
+        .select("player_id, receptions, receiving_yards, receiving_tds")
+        .eq("season", season)
+        .eq("week", week)
+        .in_("player_id", player_ids)
+        .execute()
+    )
+    stats_by_player = {row["player_id"]: row for row in stats_result.data}
+
+    filtered_rows = []
+    for row in rows:
+        stats = stats_by_player.get(row["player_id"], {})
+        row["receptions"] = stats.get("receptions") or 0
+        row["receiving_yards"] = stats.get("receiving_yards") or 0
+        row["receiving_tds"] = stats.get("receiving_tds") or 0
+        if (
+            row["receiving_yards"] >= min_receiving_yards
+            and row["receiving_tds"] >= min_receiving_tds
+            and row["receptions"] >= min_receptions
+        ):
+            filtered_rows.append(row)
+    return filtered_rows

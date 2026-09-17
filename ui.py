@@ -10,16 +10,42 @@ scoreboard.render_header()
 def render_search():
     st.title("search WRs")
     search_query_for_stats = st.text_input(label="Search WRs by name", placeholder="Enter WR name", type="search")
-    search_clicked = st.button("Search")
+
+    search_col, filter_col = st.columns([1, 1])
+    with search_col:
+        search_clicked = st.button("Search")
+    with filter_col:
+        with st.popover("Filter Options"):
+            season = st.selectbox("Select Season", options=[2024, 2025, 2026], index=1)
+            week = st.selectbox(
+                "Select Week",
+                options=[None] + list(range(1, 18)),
+                format_func=lambda w: "Season Total" if w is None else f"Week {w}",
+            )
+            yardage = st.number_input("Minimum Receiving Yards", min_value=0, step=10)
+            tds = st.number_input("Minimum Receiving TDs", min_value=0, step=1)
+            receptions = st.number_input("Minimum Receptions", min_value=0, step=1)
 
     if search_query_for_stats and search_clicked:
         try:
-            search_results = db.search_wrs_by_name(search_query_for_stats)
+            search_results = db.search_wrs_by_name(
+                search_query_for_stats,
+                season=season,
+                week=week,
+                min_receiving_yards=yardage,
+                min_receiving_tds=tds,
+                min_receptions=receptions,
+            )
             if search_results:
+                preferred_column_order = (
+                    "player_display_name", "season", "week", "rank",
+                    "total_score", "receptions", "receiving_yards", "receiving_tds",
+                )
+                column_order = tuple(c for c in preferred_column_order if c in search_results[0])
                 st.dataframe(
                     search_results,
                     use_container_width=True,
-                    column_order=("player_display_name", "season", "total_score", "receptions", "receiving_yards", "receiving_tds"),
+                    column_order=column_order,
                 )
             else:
                 st.write("No WRs found with that name.")
@@ -27,7 +53,7 @@ def render_search():
             st.write(f"An error occurred: {e}")
 
 
-st.title("NFL WR Predictions")
+
 render_search()
 
 
