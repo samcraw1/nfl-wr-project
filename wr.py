@@ -1,5 +1,4 @@
 import nflreadpy as nfl
-import tkinter as tk
 import polars as pl
 from requests import get
 import json

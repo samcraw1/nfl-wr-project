@@ -1,13 +1,15 @@
 import streamlit as st
 
 import db
+import scoreboard
 
 
 st.set_page_config(layout="wide")
 
+scoreboard.render_header()
+
 st.title("NFL WR Predictions")
 season_rankings = db.get_season_rankings(season=2025)
-db.get_season_rankings(season=2025)
 week_1_stats = db.get_weekly_wr_stats(season=2026, week=1)
 stats_by_player = {row["player_id"]: row for row in week_1_stats}
 week_1_winners = db.get_weekly_rankings(season=2026, week=1)
@@ -45,9 +47,3 @@ with col3:
         use_container_width=True,
         column_order=("player_display_name", "predicted_score"),
     )
-
-
-
-
-
-
