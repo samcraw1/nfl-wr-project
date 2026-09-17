@@ -140,3 +140,15 @@ def get_model_result_id(model_version):
         .execute()
     )
     return result.data["id"]
+
+def search_wrs_by_name(name, season=2025):
+    result = (
+        get_client()
+        .table("season_rankings")
+        .select("player_display_name, season, total_score, receptions, receiving_yards, receiving_tds")
+        .eq("season", season)
+        .ilike("player_display_name", f"%{name}%")
+        .order("total_score", desc=True)
+        .execute()
+    )
+    return result.data

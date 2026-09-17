@@ -1,5 +1,4 @@
 import streamlit as st
-
 import db
 import scoreboard
 
@@ -8,7 +7,31 @@ st.set_page_config(layout="wide")
 
 scoreboard.render_header()
 
+def render_search():
+    st.title("search WRs")
+    search_query_for_stats = st.text_input(label="Search WRs by name", placeholder="Enter WR name", type="search")
+    search_clicked = st.button("Search")
+
+    if search_query_for_stats and search_clicked:
+        try:
+            search_results = db.search_wrs_by_name(search_query_for_stats)
+            if search_results:
+                st.dataframe(
+                    search_results,
+                    use_container_width=True,
+                    column_order=("player_display_name", "season", "total_score", "receptions", "receiving_yards", "receiving_tds"),
+                )
+            else:
+                st.write("No WRs found with that name.")
+        except Exception as e:
+            st.write(f"An error occurred: {e}")
+
+
 st.title("NFL WR Predictions")
+render_search()
+
+
+
 season_rankings = db.get_season_rankings(season=2025)
 week_1_stats = db.get_weekly_wr_stats(season=2026, week=1)
 stats_by_player = {row["player_id"]: row for row in week_1_stats}
