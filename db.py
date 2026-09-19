@@ -55,6 +55,34 @@ def get_season_rankings(season):
     )
     return result.data
 
+def get_latest_week(season):
+    result = (
+        get_client()
+        .table("weekly_rankings")
+        .select("week")
+        .eq("season", season)
+        .order("week", desc=True)
+        .limit(1)
+        .execute()
+    )
+    return result.data[0]["week"] if result.data else None
+
+def get_current_week_leaders(season):
+    week = get_latest_week(season)
+    if week is None:
+        return []
+    rankings = get_weekly_rankings(season, week)
+    stats = get_weekly_wr_stats(season, week)
+    stats_by_player = {row["player_id"]: row for row in stats}
+    for row in rankings:
+        player_stats = stats_by_player.get(row["player_id"], {})
+        row["receptions"] = player_stats.get("receptions")
+        row["receiving_yards"] = player_stats.get("receiving_yards")
+        row["receiving_tds"] = player_stats.get("receiving_tds")
+    return rankings
+        
+
+
 
 def get_weekly_rankings(season, week):
     result = (

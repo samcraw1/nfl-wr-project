@@ -62,6 +62,7 @@ season_rankings = db.get_season_rankings(season=2025)
 week_1_stats = db.get_weekly_wr_stats(season=2026, week=1)
 stats_by_player = {row["player_id"]: row for row in week_1_stats}
 week_1_winners = db.get_weekly_rankings(season=2026, week=1)
+current_week_leaders = db.get_current_week_leaders(season=2026)
 
 for row in week_1_winners:
     stats = stats_by_player.get(row["player_id"], {})
@@ -71,7 +72,7 @@ for row in week_1_winners:
 
 week_2_predictions = db.get_predictions(season=2026, week=2)
 
-col1, col2, col3 = st.columns(3)
+col1, col2, col3, col4 = st.columns(4)
 
 with col1:
     st.header("2025 Top WR Standings")
@@ -95,4 +96,11 @@ with col3:
         week_2_predictions,
         use_container_width=True,
         column_order=("player_display_name", "predicted_score"),
+    )
+with col4:
+    st.header("Current Week Leaders")
+    st.dataframe(
+        current_week_leaders,
+        use_container_width=True,
+        column_order=("total_score", "rank", "player_display_name", "receptions", "receiving_yards", "receiving_tds"),
     )

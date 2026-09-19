@@ -264,3 +264,4 @@ def render_header() -> None:
 
     for column, game in zip((c1, c2, c3), visible):
         column.markdown(_card_html(game), unsafe_allow_html=True)
+        
