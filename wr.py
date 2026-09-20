@@ -8,7 +8,7 @@ import db
 import storage
 
 SEASON = 2026
-WEEK = 1
+WEEK = 2
 
 s = nfl.load_player_stats([SEASON])
 wr_stats = s.filter((pl.col("week") == WEEK) & (pl.col("position") == "WR"))

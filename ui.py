@@ -16,12 +16,15 @@ def render_search():
         search_clicked = st.button("Search")
     with filter_col:
         with st.popover("Filter Options"):
-            season = st.selectbox("Select Season", options=[2024, 2025, 2026], index=1)
             week = st.selectbox(
                 "Select Week",
                 options=[None] + list(range(1, 18)),
                 format_func=lambda w: "Season Total" if w is None else f"Week {w}",
             )
+            season_options = db.get_season_total_seasons() if week is None else db.get_weekly_seasons()
+            if not season_options:
+                season_options = [2025]
+            season = st.selectbox("Select Season", options=season_options, index=len(season_options) - 1)
             yardage = st.number_input("Minimum Receiving Yards", min_value=0, step=10)
             tds = st.number_input("Minimum Receiving TDs", min_value=0, step=1)
             receptions = st.number_input("Minimum Receptions", min_value=0, step=1)
@@ -39,7 +42,7 @@ def render_search():
             if search_results:
                 preferred_column_order = (
                     "player_display_name", "season", "week", "rank",
-                    "total_score", "receptions", "receiving_yards", "receiving_tds",
+                    "total_score", "receptions", "receiving_yards", "receiving_tds", "current_week_score"
                 )
                 column_order = tuple(c for c in preferred_column_order if c in search_results[0])
                 st.dataframe(
@@ -99,8 +102,17 @@ with col3:
     )
 with col4:
     st.header("Current Week Leaders")
-    st.dataframe(
-        current_week_leaders,
-        use_container_width=True,
-        column_order=("total_score", "rank", "player_display_name", "receptions", "receiving_yards", "receiving_tds"),
-    )
+    current_week_leaders = db.get_current_week_leaders(season=2026)
+    if current_week_leaders:
+        leader_column_order = tuple  (c for c in ("current_week_score", "total_score", "rank",
+                          "player_display_name",
+  "receptions", "receiving_yards", "receiving_tds")
+              if c in current_week_leaders[0]
+          )
+        st.dataframe(
+            current_week_leaders,
+            use_container_width=True,
+            column_order=leader_column_order,
+        )
+    else:
+        st.write("No current week data available yet")
