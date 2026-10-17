@@ -1,0 +1,45 @@
+# Weekly ingestion. The scheduled run scores the week after the last one stored
+# in weekly_rankings and persists it only if every game that week has a result
+# (ingest-week's own gate), so running it every Tuesday is safe.
+#
+# Requires repository secrets SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY, and a
+# repository variable CURRENT_SEASON (e.g. 2026).
+name: Ingest week
+
+on:
+  schedule:
+    - cron: "17 12 * * 2" # Tuesdays 12:17 UTC, after Monday night football
+  workflow_dispatch:
+    inputs:
+      season:
+        description: Season (defaults to the CURRENT_SEASON variable)
+        required: false
+      week:
+        description: Week number, or "next"
+        required: false
+        default: next
+      dry_run:
+        description: Print what would be written without writing
+        type: boolean
+        default: false
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    env:
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Ingest
+        run: >
+          pnpm ingest-week
+          --season "${{ inputs.season || vars.CURRENT_SEASON }}"
+          --week "${{ inputs.week || 'next' }}"
+          ${{ inputs.dry_run && '--dry-run' || '' }}

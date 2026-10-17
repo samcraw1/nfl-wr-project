@@ -1,5 +1,19 @@
+# Node / Next.js
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts
+
+# Env
+.env
+.env*.local
+
+# Python (legacy/)
 .venv/
 __pycache__/
 *.pyc
+
+# Tooling
 .claude/
-.env
+.DS_Store

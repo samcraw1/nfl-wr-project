@@ -1,0 +1,114 @@
+{
+  "_note": "Hand-built sample in the shape of ESPN's site API scoreboard payload (the sandbox that produced the other fixtures could not reach site.api.espn.com). Fields the parser reads are faithful to the real payload; everything else is omitted.",
+  "leagues": [
+    {
+      "calendar": [
+        {
+          "label": "Preseason",
+          "value": "1",
+          "entries": [
+            { "label": "Hall of Fame Weekend", "value": "1" },
+            { "label": "Preseason Week 1", "value": "2" }
+          ]
+        },
+        {
+          "label": "Regular Season",
+          "value": "2",
+          "entries": [
+            { "label": "Week 1", "value": "1" },
+            { "label": "Week 2", "value": "2" },
+            { "label": "Week 3", "value": "3" }
+          ]
+        },
+        {
+          "label": "Postseason",
+          "value": "3",
+          "entries": [
+            { "label": "Wild Card", "value": "1" },
+            { "label": "Super Bowl", "value": "5" }
+          ]
+        }
+      ]
+    }
+  ],
+  "season": { "year": 2025, "type": 2 },
+  "week": { "number": 2 },
+  "events": [
+    {
+      "status": { "type": { "state": "post", "shortDetail": "Final" }, "period": 4, "displayClock": "0:00" },
+      "competitions": [
+        {
+          "competitors": [
+            { "homeAway": "home", "score": "24", "winner": true, "team": { "abbreviation": "PHI", "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/phi.png" } },
+            { "homeAway": "away", "score": "20", "winner": false, "team": { "abbreviation": "DAL", "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/dal.png" } }
+          ]
+        }
+      ]
+    },
+    {
+      "status": { "type": { "state": "in", "shortDetail": "4:12 - 3rd" }, "period": 3, "displayClock": "4:12" },
+      "competitions": [
+        {
+          "competitors": [
+            { "homeAway": "away", "score": "10", "team": { "abbreviation": "KC", "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/kc.png" } },
+            { "homeAway": "home", "score": "13", "team": { "abbreviation": "LAC", "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/lac.png" } }
+          ]
+        }
+      ]
+    },
+    {
+      "status": { "type": { "state": "in" }, "period": 5, "displayClock": "9:58" },
+      "competitions": [
+        {
+          "competitors": [
+            { "homeAway": "home", "score": "27", "team": { "abbreviation": "BUF", "logo": "" } },
+            { "homeAway": "away", "score": "27", "team": { "abbreviation": "NYJ", "logo": "" } }
+          ]
+        }
+      ]
+    },
+    {
+      "status": { "type": { "state": "in" }, "displayClock": "" },
+      "competitions": [
+        {
+          "competitors": [
+            { "homeAway": "home", "score": "0", "team": { "abbreviation": "SEA" } },
+            { "homeAway": "away", "score": "0", "team": { "abbreviation": "NE" } }
+          ]
+        }
+      ]
+    },
+    {
+      "status": { "type": { "state": "pre", "shortDetail": "9/17 - 8:15 PM EDT" } },
+      "competitions": [
+        {
+          "competitors": [
+            { "homeAway": "home", "score": "0", "team": { "abbreviation": "GB", "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/gb.png" } },
+            { "homeAway": "away", "score": "0", "team": { "abbreviation": "WSH", "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/wsh.png" } }
+          ]
+        }
+      ]
+    },
+    {
+      "status": { "type": { "state": "pre", "shortDetail": "" } },
+      "competitions": [
+        {
+          "competitors": [
+            { "homeAway": "home", "team": {} },
+            { "homeAway": "away", "team": { "abbreviation": "DEN" } }
+          ]
+        }
+      ]
+    },
+    {
+      "status": { "type": { "state": "pre", "shortDetail": "9/18 - 1:00 PM EST" } },
+      "competitions": [
+        {
+          "competitors": [
+            { "homeAway": "home", "team": { "abbreviation": "MIA" } }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,5 +1,12 @@
 # TypeScript Rewrite Plan
 
+> **Status (2026-10-17):** Phases 0–5 are implemented on this branch. Scoring,
+> predictions and the ingestion row builders are verified against the Python
+> fixtures (`pnpm test`); the three scripts run against live nflverse data with
+> `--dry-run`. Not yet done: running the scripts for real against Supabase
+> (needs credentials), deploying the web app, and deleting `legacy/`. See
+> README.md for the current layout and behaviour notes.
+
 Plan for rewriting the NFL WR project (currently ~1,450 lines of Python across 10
 modules: Polars + nflreadpy + Streamlit + Supabase) as a TypeScript codebase.
 
@@ -12,29 +19,29 @@ system rather than argued about.
 
 ## 1. What exists today
 
-| File | Lines | Role | Kind |
-|---|---|---|---|
-| `formula.py` | 289 | Tiered points per stat (YAC, yards, TDs, receptions, targets, target share, air yards, first downs, fumbles lost, drops) and `wr_formula()` that sums them into `total_score` | Pure logic |
-| `prediction.py` | 121 | Rolling-average predictors (3-week, cold-start 2-week/3-week with prior-season average), `calculate_2025_season_score_lol()`, and a top-level script that writes week-2 predictions | Logic + script |
-| `opponent.py` | 101 | Defense matchup scoring and `apply_opponent_adjustment()`. **Not imported anywhere** | Pure logic (unused) |
-| `live.py` | 51 | Scores the in-progress week straight from nflverse; `current_week_score` rows for leaders and search | Logic |
-| `db.py` | 355 | Supabase client, upserts, reads for the UI, name search with season-total / season-to-date / weekly / live fallbacks | Data access |
-| `storage.py` | 48 | Supabase Storage uploads: raw week parquet, training parquet, joblib model | Data access |
-| `wr.py` | 80 | Weekly ingestion script: score a week, and if every game has a result, upsert players, stats, rankings, raw parquet | Script |
-| `season.py` | 27 | Season ingestion script: average 2025 weekly scores into `season_rankings` | Script |
-| `scoreboard.py` | 266 | ESPN scoreboard fetch/parse + Streamlit livescore banner with week picker and paging | UI + logic |
-| `ui.py` | 117 | Streamlit dashboard: search panel, four tables (2025 standings, week 1 rankings, week 2 predictions, current-week leaders) | UI |
+| File            | Lines | Role                                                                                                                                                                                | Kind                |
+| --------------- | ----- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
+| `formula.py`    | 289   | Tiered points per stat (YAC, yards, TDs, receptions, targets, target share, air yards, first downs, fumbles lost, drops) and `wr_formula()` that sums them into `total_score`       | Pure logic          |
+| `prediction.py` | 121   | Rolling-average predictors (3-week, cold-start 2-week/3-week with prior-season average), `calculate_2025_season_score_lol()`, and a top-level script that writes week-2 predictions | Logic + script      |
+| `opponent.py`   | 101   | Defense matchup scoring and `apply_opponent_adjustment()`. **Not imported anywhere**                                                                                                | Pure logic (unused) |
+| `live.py`       | 51    | Scores the in-progress week straight from nflverse; `current_week_score` rows for leaders and search                                                                                | Logic               |
+| `db.py`         | 355   | Supabase client, upserts, reads for the UI, name search with season-total / season-to-date / weekly / live fallbacks                                                                | Data access         |
+| `storage.py`    | 48    | Supabase Storage uploads: raw week parquet, training parquet, joblib model                                                                                                          | Data access         |
+| `wr.py`         | 80    | Weekly ingestion script: score a week, and if every game has a result, upsert players, stats, rankings, raw parquet                                                                 | Script              |
+| `season.py`     | 27    | Season ingestion script: average 2025 weekly scores into `season_rankings`                                                                                                          | Script              |
+| `scoreboard.py` | 266   | ESPN scoreboard fetch/parse + Streamlit livescore banner with week picker and paging                                                                                                | UI + logic          |
+| `ui.py`         | 117   | Streamlit dashboard: search panel, four tables (2025 standings, week 1 rankings, week 2 predictions, current-week leaders)                                                          | UI                  |
 
 ### External dependencies and their TypeScript replacements
 
-| Python | Purpose | TypeScript replacement |
-|---|---|---|
-| `nflreadpy` | Downloads nflverse parquet releases | Direct `fetch()` of the same GitHub release files + `hyparquet` (pure TS parquet reader). URLs verified 2026‑10‑17, see §4 |
-| `polars` | DataFrames | None. Plain typed arrays/objects. A week is ~150 WR rows, a season ~3,000; no frame library needed |
-| `supabase` | Postgres + Storage | `@supabase/supabase-js` with generated `Database` types |
-| `streamlit` | UI | Next.js (App Router) + React |
-| `requests` | ESPN API | `fetch()` |
-| `python-dotenv` | Env | Next.js built-in `.env.local`; `dotenv` for scripts |
+| Python          | Purpose                             | TypeScript replacement                                                                                                     |
+| --------------- | ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `nflreadpy`     | Downloads nflverse parquet releases | Direct `fetch()` of the same GitHub release files + `hyparquet` (pure TS parquet reader). URLs verified 2026‑10‑17, see §4 |
+| `polars`        | DataFrames                          | None. Plain typed arrays/objects. A week is ~150 WR rows, a season ~3,000; no frame library needed                         |
+| `supabase`      | Postgres + Storage                  | `@supabase/supabase-js` with generated `Database` types                                                                    |
+| `streamlit`     | UI                                  | Next.js (App Router) + React                                                                                               |
+| `requests`      | ESPN API                            | `fetch()`                                                                                                                  |
+| `python-dotenv` | Env                                 | Next.js built-in `.env.local`; `dotenv` for scripts                                                                        |
 
 ### Supabase schema (project `NFL WR Project`, verified live)
 
@@ -54,19 +61,19 @@ averages).
 
 ## 2. Target stack
 
-| Concern | Choice | Why |
-|---|---|---|
-| Language | TypeScript 5.x, `strict: true` | |
-| Package manager | pnpm | Already installed; fast, strict by default |
-| Web framework | **Next.js 15, App Router** | Server Components let the dashboard read Supabase with the service-role key without ever shipping it to the browser. Replaces Streamlit's server-rendered model most directly |
-| UI | React + Tailwind CSS | Scoreboard banner CSS ports 1:1 to Tailwind or a CSS module |
-| Tables | TanStack Table (or plain `<table>` to start) | Streamlit `st.dataframe` equivalent with column ordering |
-| Data access | `@supabase/supabase-js` + `supabase gen types` | Typed queries; the Supabase CLI/MCP can generate the `Database` type from the live project |
-| nflverse loading | `hyparquet` | Pure TS parquet reader, works in Node and the browser, no native deps. Parquet is ~10x smaller than the CSV alternative (855 KB vs 8.6 MB for 2025 player stats) |
-| Scripts runner | `tsx` | Run ingestion scripts directly: `pnpm tsx scripts/ingest-week.ts --season 2026 --week 2` |
-| Tests | Vitest | Golden-file tests against Python output (see §6) |
-| Lint/format | ESLint (next config) + Prettier | |
-| Hosting | Vercel (web) + GitHub Actions cron (ingestion) | Recommendation only; see §8 |
+| Concern          | Choice                                         | Why                                                                                                                                                                           |
+| ---------------- | ---------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Language         | TypeScript 5.x, `strict: true`                 |                                                                                                                                                                               |
+| Package manager  | pnpm                                           | Already installed; fast, strict by default                                                                                                                                    |
+| Web framework    | **Next.js 15, App Router**                     | Server Components let the dashboard read Supabase with the service-role key without ever shipping it to the browser. Replaces Streamlit's server-rendered model most directly |
+| UI               | React + Tailwind CSS                           | Scoreboard banner CSS ports 1:1 to Tailwind or a CSS module                                                                                                                   |
+| Tables           | TanStack Table (or plain `<table>` to start)   | Streamlit `st.dataframe` equivalent with column ordering                                                                                                                      |
+| Data access      | `@supabase/supabase-js` + `supabase gen types` | Typed queries; the Supabase CLI/MCP can generate the `Database` type from the live project                                                                                    |
+| nflverse loading | `hyparquet`                                    | Pure TS parquet reader, works in Node and the browser, no native deps. Parquet is ~10x smaller than the CSV alternative (855 KB vs 8.6 MB for 2025 player stats)              |
+| Scripts runner   | `tsx`                                          | Run ingestion scripts directly: `pnpm tsx scripts/ingest-week.ts --season 2026 --week 2`                                                                                      |
+| Tests            | Vitest                                         | Golden-file tests against Python output (see §6)                                                                                                                              |
+| Lint/format      | ESLint (next config) + Prettier                |                                                                                                                                                                               |
+| Hosting          | Vercel (web) + GitHub Actions cron (ingestion) | Recommendation only; see §8                                                                                                                                                   |
 
 Single app, not a monorepo. The project is small; module boundaries inside
 `src/lib` give the separation without workspace overhead. Split into packages
@@ -129,11 +136,11 @@ nfl-wr-project/
 nflreadpy is a thin downloader over GitHub release assets. The TS loader fetches
 the same files. Verified URLs (all return 200):
 
-| nflreadpy call | URL |
-|---|---|
-| `load_player_stats([S])` | `https://github.com/nflverse/nflverse-data/releases/download/stats_player/stats_player_week_{S}.parquet` |
-| `load_pfr_advstats(seasons=[S], stat_type="rec")` | `https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_rec_{S}.parquet` |
-| `load_schedules([S])` | `https://github.com/nflverse/nflverse-data/releases/download/schedules/games.csv` (all seasons; filter by `season`) |
+| nflreadpy call                                    | URL                                                                                                                 |
+| ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| `load_player_stats([S])`                          | `https://github.com/nflverse/nflverse-data/releases/download/stats_player/stats_player_week_{S}.parquet`            |
+| `load_pfr_advstats(seasons=[S], stat_type="rec")` | `https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_rec_{S}.parquet`            |
+| `load_schedules([S])`                             | `https://github.com/nflverse/nflverse-data/releases/download/schedules/games.csv` (all seasons; filter by `season`) |
 
 Each has a `.csv` twin at the same path if parquet ever becomes a problem.
 
@@ -159,7 +166,7 @@ the ESPN call and give the live-week path a similar bound.
   `rushing_tds > 0 → 1` branch can go since `rushing_tds` is an integer).
 - `wr_formula` becomes a single pass over the WR rows: compute the ten point
   columns, left-join drops by **display name** (`pfr_player_name ===
-  player_display_name`, missing → 0), sum into `total_score`, sort descending.
+player_display_name`, missing → 0), sum into `total_score`, sort descending.
 - Preserve the shape: output rows carry the raw stat columns the Python output
   carries (callers select `receptions`, `receiving_yards`, `receiving_tds`,
   `receiving_yards_after_catch` from it).
@@ -240,7 +247,7 @@ abandoned the idea.
 ### `scoreboard.py` → `lib/espn/scoreboard.ts` + `components/Scoreboard.tsx`
 
 - Pure parts (`parseGames`, `weekOptions`, `badge`, `side`) port to TS with the
-  same string rules (`FT`, `Q3 4:12`, `OT`, kickoff text with ` - ` and
+  same string rules (`FT`, `Q3 4:12`, `OT`, kickoff text with `-` and
   `EDT/EST` stripped, `TBD`).
 - The banner is a client component: week `<select>`, prev/next buttons, three
   cards per page, reset page to 0 on week change. Fetch via a route handler
@@ -287,18 +294,18 @@ Once green, every "fix" in §7 is a deliberate fixture change in its own commit.
 
 ## 7. Known quirks to decide on (port first, then decide)
 
-| # | Quirk | Recommendation |
-|---|---|---|
-| 1 | All joins key on `player_display_name`, not `player_id`. Drops only exist by PFR name, so some name mismatch is inherent there, but ranking→stats joins could use `player_id` | Keep for the port; switch internal joins to `player_id` afterwards and keep the name join only for drops |
-| 2 | Predictors inner-join, silently dropping any player missing a week | Keep; later consider treating a missing week as 0 or using available weeks only |
-| 3 | `prediction.py`, `wr.py`, `season.py` run on import with hard-coded season/week | Fixed by the CLI conversion in the port itself |
-| 4 | `ui.py` hard-codes 2025/2026 and weeks 1/2 | Port as constants in one `config.ts`, then derive from DB |
-| 5 | Current-week leaders fetched twice in `ui.py` | Fetch once |
-| 6 | `weekly_rankings.total_score` is `bigint`, but the season-to-date aggregate averages it | Fine; types just need to express it |
-| 7 | `opponent.py` unused | Port as experimental or delete |
-| 8 | `upload_model` is joblib/Python-specific | Leave out of TS; see §8 |
-| 9 | Two Supabase clients (`db.py`, `storage.py`) | One client module |
-| 10 | Search is `ilike '%name%'` server-side but plain `includes` in the in-memory paths | Same semantics for ASCII; keep |
+| #   | Quirk                                                                                                                                                                         | Recommendation                                                                                           |
+| --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| 1   | All joins key on `player_display_name`, not `player_id`. Drops only exist by PFR name, so some name mismatch is inherent there, but ranking→stats joins could use `player_id` | Keep for the port; switch internal joins to `player_id` afterwards and keep the name join only for drops |
+| 2   | Predictors inner-join, silently dropping any player missing a week                                                                                                            | Keep; later consider treating a missing week as 0 or using available weeks only                          |
+| 3   | `prediction.py`, `wr.py`, `season.py` run on import with hard-coded season/week                                                                                               | Fixed by the CLI conversion in the port itself                                                           |
+| 4   | `ui.py` hard-codes 2025/2026 and weeks 1/2                                                                                                                                    | Port as constants in one `config.ts`, then derive from DB                                                |
+| 5   | Current-week leaders fetched twice in `ui.py`                                                                                                                                 | Fetch once                                                                                               |
+| 6   | `weekly_rankings.total_score` is `bigint`, but the season-to-date aggregate averages it                                                                                       | Fine; types just need to express it                                                                      |
+| 7   | `opponent.py` unused                                                                                                                                                          | Port as experimental or delete                                                                           |
+| 8   | `upload_model` is joblib/Python-specific                                                                                                                                      | Leave out of TS; see §8                                                                                  |
+| 9   | Two Supabase clients (`db.py`, `storage.py`)                                                                                                                                  | One client module                                                                                        |
+| 10  | Search is `ilike '%name%'` server-side but plain `includes` in the in-memory paths                                                                                            | Same semantics for ASCII; keep                                                                           |
 
 ---
 
@@ -328,16 +335,16 @@ Recommendations given; none block Phase 0–2.
 
 ## 9. Phases
 
-| Phase | Scope | Exit criteria | Est. |
-|---|---|---|---|
-| **0. Scaffold** | pnpm + Next.js + TS strict + Vitest + ESLint/Prettier; move Python to `legacy/`; `.env.example`; generate `database.types.ts` | `pnpm dev`, `pnpm test`, `pnpm lint` all run | ½ day |
-| **1. Fixtures** | Python dumper; commit JSON fixtures for 4 weeks + ESPN payload | Fixtures reviewed, deterministic | ½ day |
-| **2. Core** | `types.ts`, `scoring/*`, `nflverse/*`, `live.ts`, `espn/scoreboard.ts` | Golden tests green for formula, live rows, season average, scoreboard parsing; loader fetches real 2025 data | 1–2 days |
-| **3. DB layer** | `db/*` with typed upserts, reads, search chain, storage (parquet via hyparquet-writer) | Manual diff of search results vs Python on 5 queries; dry-run upsert against a Supabase branch or `--dry-run` flag | 1 day |
-| **4. Scripts** | `ingest-week`, `build-season`, `predict-week` CLIs with `--dry-run` | Dry runs reproduce current DB rows for an already-ingested week byte-for-byte | ½–1 day |
-| **5. Web UI** | Dashboard page, search component, scoreboard banner | Feature parity with Streamlit screen; works on phone width | 1–2 days |
-| **6. Cutover** | Deploy; GitHub Actions cron; README; delete `legacy/` (or keep `legacy/ml`) | Production URL serving; one real weekly ingest run via Actions | ½ day |
-| **7. Post-port fixes** | Items from §7 you choose, each with its fixture update | Separate PRs | as desired |
+| Phase                  | Scope                                                                                                                         | Exit criteria                                                                                                      | Est.       |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ | ---------- |
+| **0. Scaffold**        | pnpm + Next.js + TS strict + Vitest + ESLint/Prettier; move Python to `legacy/`; `.env.example`; generate `database.types.ts` | `pnpm dev`, `pnpm test`, `pnpm lint` all run                                                                       | ½ day      |
+| **1. Fixtures**        | Python dumper; commit JSON fixtures for 4 weeks + ESPN payload                                                                | Fixtures reviewed, deterministic                                                                                   | ½ day      |
+| **2. Core**            | `types.ts`, `scoring/*`, `nflverse/*`, `live.ts`, `espn/scoreboard.ts`                                                        | Golden tests green for formula, live rows, season average, scoreboard parsing; loader fetches real 2025 data       | 1–2 days   |
+| **3. DB layer**        | `db/*` with typed upserts, reads, search chain, storage (parquet via hyparquet-writer)                                        | Manual diff of search results vs Python on 5 queries; dry-run upsert against a Supabase branch or `--dry-run` flag | 1 day      |
+| **4. Scripts**         | `ingest-week`, `build-season`, `predict-week` CLIs with `--dry-run`                                                           | Dry runs reproduce current DB rows for an already-ingested week byte-for-byte                                      | ½–1 day    |
+| **5. Web UI**          | Dashboard page, search component, scoreboard banner                                                                           | Feature parity with Streamlit screen; works on phone width                                                         | 1–2 days   |
+| **6. Cutover**         | Deploy; GitHub Actions cron; README; delete `legacy/` (or keep `legacy/ml`)                                                   | Production URL serving; one real weekly ingest run via Actions                                                     | ½ day      |
+| **7. Post-port fixes** | Items from §7 you choose, each with its fixture update                                                                        | Separate PRs                                                                                                       | as desired |
 
 Roughly **5–8 working days** for parity, with the UI the least certain part.
 
