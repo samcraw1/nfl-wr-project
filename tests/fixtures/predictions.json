@@ -1,0 +1,2377 @@
+{
+ "rolling_3": {
+  "inputs": [
+   "2025-w18",
+   "2025-w17",
+   "2025-w16"
+  ],
+  "output": [
+   {
+    "player_display_name": "Puka Nacua",
+    "total_score": 23,
+    "total_score_2": 18,
+    "total_score_3": 40,
+    "predicted_score": 27.0
+   },
+   {
+    "player_display_name": "Ja'Marr Chase",
+    "total_score": 28,
+    "total_score_2": 23,
+    "total_score_3": 27,
+    "predicted_score": 26.0
+   },
+   {
+    "player_display_name": "Parker Washington",
+    "total_score": 18,
+    "total_score_2": 24,
+    "total_score_3": 25,
+    "predicted_score": 22.333333333333332
+   },
+   {
+    "player_display_name": "Jaxon Smith-Njigba",
+    "total_score": 19,
+    "total_score_2": 18,
+    "total_score_3": 28,
+    "predicted_score": 21.666666666666664
+   },
+   {
+    "player_display_name": "Amon-Ra St. Brown",
+    "total_score": 29,
+    "total_score_2": 20,
+    "total_score_3": 9,
+    "predicted_score": 19.333333333333332
+   },
+   {
+    "player_display_name": "Justin Jefferson",
+    "total_score": 27,
+    "total_score_2": 8,
+    "total_score_3": 18,
+    "predicted_score": 17.666666666666664
+   },
+   {
+    "player_display_name": "Michael Wilson",
+    "total_score": 20,
+    "total_score_2": 26,
+    "total_score_3": 7,
+    "predicted_score": 17.666666666666664
+   },
+   {
+    "player_display_name": "Zay Flowers",
+    "total_score": 24,
+    "total_score_2": 10,
+    "total_score_3": 15,
+    "predicted_score": 16.333333333333332
+   },
+   {
+    "player_display_name": "Stefon Diggs",
+    "total_score": 3,
+    "total_score_2": 20,
+    "total_score_3": 25,
+    "predicted_score": 16.0
+   },
+   {
+    "player_display_name": "Alec Pierce",
+    "total_score": 21,
+    "total_score_2": 5,
+    "total_score_3": 14,
+    "predicted_score": 13.333333333333332
+   },
+   {
+    "player_display_name": "George Pickens",
+    "total_score": 1,
+    "total_score_2": 12,
+    "total_score_3": 24,
+    "predicted_score": 12.333333333333332
+   },
+   {
+    "player_display_name": "Elic Ayomanor",
+    "total_score": 17,
+    "total_score_2": 14,
+    "total_score_3": 6,
+    "predicted_score": 12.333333333333332
+   },
+   {
+    "player_display_name": "Tetairoa McMillan",
+    "total_score": 9,
+    "total_score_2": 2,
+    "total_score_3": 23,
+    "predicted_score": 11.333333333333332
+   },
+   {
+    "player_display_name": "Terry McLaurin",
+    "total_score": 9,
+    "total_score_2": 16,
+    "total_score_3": 8,
+    "predicted_score": 11.0
+   },
+   {
+    "player_display_name": "Courtland Sutton",
+    "total_score": 0,
+    "total_score_2": 10,
+    "total_score_3": 22,
+    "predicted_score": 10.666666666666666
+   },
+   {
+    "player_display_name": "Chris Godwin Jr.",
+    "total_score": 0,
+    "total_score_2": 23,
+    "total_score_3": 8,
+    "predicted_score": 10.333333333333332
+   },
+   {
+    "player_display_name": "Tee Higgins",
+    "total_score": 19,
+    "total_score_2": 6,
+    "total_score_3": 6,
+    "predicted_score": 10.333333333333332
+   },
+   {
+    "player_display_name": "Mike Evans",
+    "total_score": 1,
+    "total_score_2": 12,
+    "total_score_3": 16,
+    "predicted_score": 9.666666666666666
+   },
+   {
+    "player_display_name": "Drake London",
+    "total_score": 17,
+    "total_score_2": 1,
+    "total_score_3": 10,
+    "predicted_score": 9.333333333333332
+   },
+   {
+    "player_display_name": "CeeDee Lamb",
+    "total_score": 0,
+    "total_score_2": 16,
+    "total_score_3": 11,
+    "predicted_score": 9.0
+   },
+   {
+    "player_display_name": "Keenan Allen",
+    "total_score": 20,
+    "total_score_2": -1,
+    "total_score_3": 8,
+    "predicted_score": 9.0
+   },
+   {
+    "player_display_name": "DeVonta Smith",
+    "total_score": 6,
+    "total_score_2": 5,
+    "total_score_3": 15,
+    "predicted_score": 8.666666666666666
+   },
+   {
+    "player_display_name": "Jauan Jennings",
+    "total_score": 6,
+    "total_score_2": 6,
+    "total_score_3": 13,
+    "predicted_score": 8.333333333333332
+   },
+   {
+    "player_display_name": "Jerry Jeudy",
+    "total_score": 5,
+    "total_score_2": 16,
+    "total_score_3": 3,
+    "predicted_score": 8.0
+   },
+   {
+    "player_display_name": "Gunner Olszewski",
+    "total_score": 23,
+    "total_score_2": 1,
+    "total_score_3": 0,
+    "predicted_score": 8.0
+   },
+   {
+    "player_display_name": "Josh Downs",
+    "total_score": 5,
+    "total_score_2": 2,
+    "total_score_3": 16,
+    "predicted_score": 7.666666666666666
+   },
+   {
+    "player_display_name": "Jakobi Meyers",
+    "total_score": 6,
+    "total_score_2": 8,
+    "total_score_3": 9,
+    "predicted_score": 7.666666666666666
+   },
+   {
+    "player_display_name": "Tre Tucker",
+    "total_score": 8,
+    "total_score_2": 8,
+    "total_score_3": 7,
+    "predicted_score": 7.666666666666666
+   },
+   {
+    "player_display_name": "Jalen McMillan",
+    "total_score": 0,
+    "total_score_2": 23,
+    "total_score_3": 0,
+    "predicted_score": 7.666666666666666
+   },
+   {
+    "player_display_name": "Jameson Williams",
+    "total_score": 11,
+    "total_score_2": 2,
+    "total_score_3": 9,
+    "predicted_score": 7.333333333333333
+   },
+   {
+    "player_display_name": "Isaiah Williams",
+    "total_score": 12,
+    "total_score_2": 4,
+    "total_score_3": 6,
+    "predicted_score": 7.333333333333333
+   },
+   {
+    "player_display_name": "DJ Moore",
+    "total_score": 2,
+    "total_score_2": 2,
+    "total_score_3": 17,
+    "predicted_score": 7.0
+   },
+   {
+    "player_display_name": "Isaac TeSlaa",
+    "total_score": 0,
+    "total_score_2": 9,
+    "total_score_3": 12,
+    "predicted_score": 7.0
+   },
+   {
+    "player_display_name": "Deebo Samuel Sr.",
+    "total_score": 5,
+    "total_score_2": 9,
+    "total_score_3": 7,
+    "predicted_score": 7.0
+   },
+   {
+    "player_display_name": "Jalen Coker",
+    "total_score": 14,
+    "total_score_2": 0,
+    "total_score_3": 5,
+    "predicted_score": 6.333333333333333
+   },
+   {
+    "player_display_name": "Kevin Austin Jr.",
+    "total_score": 9,
+    "total_score_2": 10,
+    "total_score_3": 0,
+    "predicted_score": 6.333333333333333
+   },
+   {
+    "player_display_name": "Kalif Raymond",
+    "total_score": 6,
+    "total_score_2": 0,
+    "total_score_3": 12,
+    "predicted_score": 6.0
+   },
+   {
+    "player_display_name": "Theo Wease Jr.",
+    "total_score": 7,
+    "total_score_2": 7,
+    "total_score_3": 4,
+    "predicted_score": 6.0
+   },
+   {
+    "player_display_name": "Marquez Valdes-Scantling",
+    "total_score": 9,
+    "total_score_2": 8,
+    "total_score_3": 1,
+    "predicted_score": 6.0
+   },
+   {
+    "player_display_name": "Xavier Hutchinson",
+    "total_score": 16,
+    "total_score_2": 2,
+    "total_score_3": 0,
+    "predicted_score": 6.0
+   },
+   {
+    "player_display_name": "Chimere Dike",
+    "total_score": 4,
+    "total_score_2": 6,
+    "total_score_3": 7,
+    "predicted_score": 5.666666666666666
+   },
+   {
+    "player_display_name": "Jayden Higgins",
+    "total_score": 5,
+    "total_score_2": 11,
+    "total_score_3": 0,
+    "predicted_score": 5.333333333333333
+   },
+   {
+    "player_display_name": "Adonai Mitchell",
+    "total_score": 1,
+    "total_score_2": 10,
+    "total_score_3": 4,
+    "predicted_score": 5.0
+   },
+   {
+    "player_display_name": "Dante Pettis",
+    "total_score": 10,
+    "total_score_2": 5,
+    "total_score_3": 0,
+    "predicted_score": 5.0
+   },
+   {
+    "player_display_name": "Marquise Brown",
+    "total_score": 11,
+    "total_score_2": 0,
+    "total_score_3": 3,
+    "predicted_score": 4.666666666666666
+   },
+   {
+    "player_display_name": "Brian Thomas Jr.",
+    "total_score": 5,
+    "total_score_2": 9,
+    "total_score_3": 0,
+    "predicted_score": 4.666666666666666
+   },
+   {
+    "player_display_name": "Xavier Smith",
+    "total_score": 0,
+    "total_score_2": 10,
+    "total_score_3": 3,
+    "predicted_score": 4.333333333333333
+   },
+   {
+    "player_display_name": "Jahan Dotson",
+    "total_score": 11,
+    "total_score_2": 0,
+    "total_score_3": 2,
+    "predicted_score": 4.333333333333333
+   },
+   {
+    "player_display_name": "Tre Harris",
+    "total_score": 6,
+    "total_score_2": 0,
+    "total_score_3": 5,
+    "predicted_score": 3.6666666666666665
+   },
+   {
+    "player_display_name": "Adam Thielen",
+    "total_score": 4,
+    "total_score_2": 3,
+    "total_score_3": 4,
+    "predicted_score": 3.6666666666666665
+   },
+   {
+    "player_display_name": "Darius Slayton",
+    "total_score": 9,
+    "total_score_2": 2,
+    "total_score_3": 0,
+    "predicted_score": 3.6666666666666665
+   },
+   {
+    "player_display_name": "Darnell Mooney",
+    "total_score": 8,
+    "total_score_2": 3,
+    "total_score_3": 0,
+    "predicted_score": 3.6666666666666665
+   },
+   {
+    "player_display_name": "Konata Mumpfield",
+    "total_score": -1,
+    "total_score_2": 3,
+    "total_score_3": 8,
+    "predicted_score": 3.333333333333333
+   },
+   {
+    "player_display_name": "Troy Franklin",
+    "total_score": 0,
+    "total_score_2": 4,
+    "total_score_3": 6,
+    "predicted_score": 3.333333333333333
+   },
+   {
+    "player_display_name": "Jahdae Walker",
+    "total_score": 3,
+    "total_score_2": 2,
+    "total_score_3": 5,
+    "predicted_score": 3.333333333333333
+   },
+   {
+    "player_display_name": "KaVontae Turpin",
+    "total_score": 0,
+    "total_score_2": 7,
+    "total_score_3": 3,
+    "predicted_score": 3.333333333333333
+   },
+   {
+    "player_display_name": "Treylon Burks",
+    "total_score": 4,
+    "total_score_2": 0,
+    "total_score_3": 5,
+    "predicted_score": 3.0
+   },
+   {
+    "player_display_name": "Kyle Williams",
+    "total_score": 0,
+    "total_score_2": 6,
+    "total_score_3": 3,
+    "predicted_score": 3.0
+   },
+   {
+    "player_display_name": "Scott Miller",
+    "total_score": 0,
+    "total_score_2": 7,
+    "total_score_3": 2,
+    "predicted_score": 3.0
+   },
+   {
+    "player_display_name": "Malik Washington",
+    "total_score": 6,
+    "total_score_2": 2,
+    "total_score_3": 1,
+    "predicted_score": 3.0
+   },
+   {
+    "player_display_name": "John Metchie III",
+    "total_score": 3,
+    "total_score_2": 3,
+    "total_score_3": 2,
+    "predicted_score": 2.6666666666666665
+   },
+   {
+    "player_display_name": "Marvin Mims Jr.",
+    "total_score": 2,
+    "total_score_2": 4,
+    "total_score_3": 2,
+    "predicted_score": 2.6666666666666665
+   },
+   {
+    "player_display_name": "Jaylin Noel",
+    "total_score": 0,
+    "total_score_2": 8,
+    "total_score_3": 0,
+    "predicted_score": 2.6666666666666665
+   },
+   {
+    "player_display_name": "DeAndre Hopkins",
+    "total_score": 1,
+    "total_score_2": 0,
+    "total_score_3": 6,
+    "predicted_score": 2.333333333333333
+   },
+   {
+    "player_display_name": "Christian Kirk",
+    "total_score": 0,
+    "total_score_2": 2,
+    "total_score_3": 5,
+    "predicted_score": 2.333333333333333
+   },
+   {
+    "player_display_name": "Michael Pittman",
+    "total_score": 2,
+    "total_score_2": 1,
+    "total_score_3": 4,
+    "predicted_score": 2.333333333333333
+   },
+   {
+    "player_display_name": "Demarcus Robinson",
+    "total_score": 4,
+    "total_score_2": 0,
+    "total_score_3": 3,
+    "predicted_score": 2.333333333333333
+   },
+   {
+    "player_display_name": "Andrei Iosivas",
+    "total_score": 0,
+    "total_score_2": 7,
+    "total_score_3": 0,
+    "predicted_score": 2.333333333333333
+   },
+   {
+    "player_display_name": "David Sills",
+    "total_score": 0,
+    "total_score_2": 6,
+    "total_score_3": 0,
+    "predicted_score": 2.0
+   },
+   {
+    "player_display_name": "Matthew Golden",
+    "total_score": 4,
+    "total_score_2": 2,
+    "total_score_3": 0,
+    "predicted_score": 2.0
+   },
+   {
+    "player_display_name": "Emeka Egbuka",
+    "total_score": 1,
+    "total_score_2": 4,
+    "total_score_3": 0,
+    "predicted_score": 1.6666666666666665
+   },
+   {
+    "player_display_name": "Malachi Corley",
+    "total_score": 1,
+    "total_score_2": 0,
+    "total_score_3": 3,
+    "predicted_score": 1.3333333333333333
+   },
+   {
+    "player_display_name": "JuJu Smith-Schuster",
+    "total_score": 0,
+    "total_score_2": 2,
+    "total_score_3": 2,
+    "predicted_score": 1.3333333333333333
+   },
+   {
+    "player_display_name": "DeMario Douglas",
+    "total_score": 4,
+    "total_score_2": 0,
+    "total_score_3": 0,
+    "predicted_score": 1.3333333333333333
+   },
+   {
+    "player_display_name": "Kendrick Bourne",
+    "total_score": 0,
+    "total_score_2": 0,
+    "total_score_3": 3,
+    "predicted_score": 1.0
+   },
+   {
+    "player_display_name": "Jordan Addison",
+    "total_score": 1,
+    "total_score_2": 0,
+    "total_score_3": 2,
+    "predicted_score": 1.0
+   },
+   {
+    "player_display_name": "Tyler Lockett",
+    "total_score": -1,
+    "total_score_2": 4,
+    "total_score_3": 0,
+    "predicted_score": 1.0
+   },
+   {
+    "player_display_name": "Bo Melton",
+    "total_score": 1,
+    "total_score_2": 2,
+    "total_score_3": 0,
+    "predicted_score": 1.0
+   },
+   {
+    "player_display_name": "Britain Covey",
+    "total_score": 3,
+    "total_score_2": 0,
+    "total_score_3": 0,
+    "predicted_score": 1.0
+   },
+   {
+    "player_display_name": "Xavier Legette",
+    "total_score": 3,
+    "total_score_2": 0,
+    "total_score_3": 0,
+    "predicted_score": 1.0
+   },
+   {
+    "player_display_name": "KeAndre Lambert-Smith",
+    "total_score": 3,
+    "total_score_2": 0,
+    "total_score_3": 0,
+    "predicted_score": 1.0
+   },
+   {
+    "player_display_name": "Jalen Nailor",
+    "total_score": 3,
+    "total_score_2": 0,
+    "total_score_3": -1,
+    "predicted_score": 0.6666666666666666
+   },
+   {
+    "player_display_name": "Isaiah Bond",
+    "total_score": 0,
+    "total_score_2": 0,
+    "total_score_3": 1,
+    "predicted_score": 0.3333333333333333
+   },
+   {
+    "player_display_name": "Josh Palmer",
+    "total_score": 1,
+    "total_score_2": 0,
+    "total_score_3": 0,
+    "predicted_score": 0.3333333333333333
+   },
+   {
+    "player_display_name": "Jimmy Horn Jr.",
+    "total_score": 0,
+    "total_score_2": 1,
+    "total_score_3": 0,
+    "predicted_score": 0.3333333333333333
+   },
+   {
+    "player_display_name": "Tim Patrick",
+    "total_score": 0,
+    "total_score_2": 0,
+    "total_score_3": 0,
+    "predicted_score": 0.0
+   },
+   {
+    "player_display_name": "Cooper Kupp",
+    "total_score": 2,
+    "total_score_2": -2,
+    "total_score_3": 0,
+    "predicted_score": 0.0
+   },
+   {
+    "player_display_name": "Cedrick Wilson Jr.",
+    "total_score": 0,
+    "total_score_2": 0,
+    "total_score_3": 0,
+    "predicted_score": 0.0
+   },
+   {
+    "player_display_name": "Tom Kennedy",
+    "total_score": 0,
+    "total_score_2": 0,
+    "total_score_3": 0,
+    "predicted_score": 0.0
+   },
+   {
+    "player_display_name": "Alex Bachman",
+    "total_score": 0,
+    "total_score_2": 0,
+    "total_score_3": 0,
+    "predicted_score": 0.0
+   },
+   {
+    "player_display_name": "Devin Duvernay",
+    "total_score": 0,
+    "total_score_2": 0,
+    "total_score_3": 0,
+    "predicted_score": 0.0
+   },
+   {
+    "player_display_name": "Deven Thompkins",
+    "total_score": 0,
+    "total_score_2": 0,
+    "total_score_3": 0,
+    "predicted_score": 0.0
+   },
+   {
+    "player_display_name": "Rashid Shaheed",
+    "total_score": 0,
+    "total_score_2": 0,
+    "total_score_3": 0,
+    "predicted_score": 0.0
+   },
+   {
+    "player_display_name": "Skyy Moore",
+    "total_score": 0,
+    "total_score_2": 0,
+    "total_score_3": 0,
+    "predicted_score": 0.0
+   },
+   {
+    "player_display_name": "Brycen Tremayne",
+    "total_score": 0,
+    "total_score_2": 0,
+    "total_score_3": 0,
+    "predicted_score": 0.0
+   },
+   {
+    "player_display_name": "Cedric Tillman",
+    "total_score": 0,
+    "total_score_2": 0,
+    "total_score_3": 0,
+    "predicted_score": 0.0
+   },
+   {
+    "player_display_name": "Jonathan Mingo",
+    "total_score": 0,
+    "total_score_2": 0,
+    "total_score_3": 0,
+    "predicted_score": 0.0
+   },
+   {
+    "player_display_name": "Kameron Johnson",
+    "total_score": 0,
+    "total_score_2": 0,
+    "total_score_3": 0,
+    "predicted_score": 0.0
+   },
+   {
+    "player_display_name": "Jordan Whittington",
+    "total_score": 0,
+    "total_score_2": 0,
+    "total_score_3": 0,
+    "predicted_score": 0.0
+   },
+   {
+    "player_display_name": "LaJohntay Wester",
+    "total_score": 0,
+    "total_score_2": 0,
+    "total_score_3": 0,
+    "predicted_score": 0.0
+   },
+   {
+    "player_display_name": "Tez Johnson",
+    "total_score": 0,
+    "total_score_2": 0,
+    "total_score_3": 0,
+    "predicted_score": 0.0
+   },
+   {
+    "player_display_name": "Gage Larvadain",
+    "total_score": 0,
+    "total_score_2": 0,
+    "total_score_3": 0,
+    "predicted_score": 0.0
+   },
+   {
+    "player_display_name": "Ke'Shawn Williams",
+    "total_score": 0,
+    "total_score_2": 0,
+    "total_score_3": 0,
+    "predicted_score": 0.0
+   },
+   {
+    "player_display_name": "Arian Smith",
+    "total_score": 0,
+    "total_score_2": 0,
+    "total_score_3": 0,
+    "predicted_score": 0.0
+   },
+   {
+    "player_display_name": "Steven Sims",
+    "total_score": 0,
+    "total_score_2": 0,
+    "total_score_3": -1,
+    "predicted_score": -0.3333333333333333
+   }
+  ]
+ },
+ "cold_start_2": {
+  "inputs": [
+   "season-2025-average",
+   "2026-w1"
+  ],
+  "output": [
+   {
+    "player_display_name": "Jaxon Smith-Njigba",
+    "total_score": 22.5,
+    "total_score_2": 30,
+    "predicted_score": 26.25
+   },
+   {
+    "player_display_name": "Chris Olave",
+    "total_score": 18.375,
+    "total_score_2": 30,
+    "predicted_score": 24.1875
+   },
+   {
+    "player_display_name": "Amon-Ra St. Brown",
+    "total_score": 20.0,
+    "total_score_2": 26,
+    "predicted_score": 23.0
+   },
+   {
+    "player_display_name": "Puka Nacua",
+    "total_score": 24.0,
+    "total_score_2": 19,
+    "predicted_score": 21.5
+   },
+   {
+    "player_display_name": "Justin Jefferson",
+    "total_score": 15.176470588235293,
+    "total_score_2": 24,
+    "predicted_score": 19.588235294117645
+   },
+   {
+    "player_display_name": "Christian Watson",
+    "total_score": 11.0,
+    "total_score_2": 28,
+    "predicted_score": 19.5
+   },
+   {
+    "player_display_name": "Zay Flowers",
+    "total_score": 14.117647058823529,
+    "total_score_2": 24,
+    "predicted_score": 19.058823529411764
+   },
+   {
+    "player_display_name": "Jalen Coker",
+    "total_score": 7.583333333333333,
+    "total_score_2": 30,
+    "predicted_score": 18.791666666666668
+   },
+   {
+    "player_display_name": "Nico Collins",
+    "total_score": 14.9375,
+    "total_score_2": 21,
+    "predicted_score": 17.96875
+   },
+   {
+    "player_display_name": "CeeDee Lamb",
+    "total_score": 18.307692307692307,
+    "total_score_2": 17,
+    "predicted_score": 17.653846153846153
+   },
+   {
+    "player_display_name": "Malik Nabers",
+    "total_score": 16.5,
+    "total_score_2": 16,
+    "predicted_score": 16.25
+   },
+   {
+    "player_display_name": "DJ Moore",
+    "total_score": 8.157894736842104,
+    "total_score_2": 24,
+    "predicted_score": 16.07894736842105
+   },
+   {
+    "player_display_name": "Mike Evans",
+    "total_score": 13.0,
+    "total_score_2": 18,
+    "predicted_score": 15.5
+   },
+   {
+    "player_display_name": "Garrett Wilson",
+    "total_score": 15.571428571428571,
+    "total_score_2": 14,
+    "predicted_score": 14.785714285714285
+   },
+   {
+    "player_display_name": "Parker Washington",
+    "total_score": 11.235294117647058,
+    "total_score_2": 17,
+    "predicted_score": 14.117647058823529
+   },
+   {
+    "player_display_name": "DK Metcalf",
+    "total_score": 12.0625,
+    "total_score_2": 15,
+    "predicted_score": 13.53125
+   },
+   {
+    "player_display_name": "Tetairoa McMillan",
+    "total_score": 13.055555555555555,
+    "total_score_2": 14,
+    "predicted_score": 13.527777777777779
+   },
+   {
+    "player_display_name": "Ladd McConkey",
+    "total_score": 9.823529411764707,
+    "total_score_2": 17,
+    "predicted_score": 13.411764705882353
+   },
+   {
+    "player_display_name": "Deebo Samuel Sr.",
+    "total_score": 11.6875,
+    "total_score_2": 14,
+    "predicted_score": 12.84375
+   },
+   {
+    "player_display_name": "Matthew Golden",
+    "total_score": 3.6666666666666665,
+    "total_score_2": 22,
+    "predicted_score": 12.833333333333334
+   },
+   {
+    "player_display_name": "Stefon Diggs",
+    "total_score": 10.285714285714286,
+    "total_score_2": 15,
+    "predicted_score": 12.642857142857142
+   },
+   {
+    "player_display_name": "Ja'Marr Chase",
+    "total_score": 22.0625,
+    "total_score_2": 2,
+    "predicted_score": 12.03125
+   },
+   {
+    "player_display_name": "Wan'Dale Robinson",
+    "total_score": 15.625,
+    "total_score_2": 8,
+    "predicted_score": 11.8125
+   },
+   {
+    "player_display_name": "George Pickens",
+    "total_score": 17.176470588235293,
+    "total_score_2": 6,
+    "predicted_score": 11.588235294117647
+   },
+   {
+    "player_display_name": "Emeka Egbuka",
+    "total_score": 11.941176470588236,
+    "total_score_2": 11,
+    "predicted_score": 11.470588235294118
+   },
+   {
+    "player_display_name": "Alec Pierce",
+    "total_score": 10.8,
+    "total_score_2": 12,
+    "predicted_score": 11.4
+   },
+   {
+    "player_display_name": "Michael Wilson",
+    "total_score": 12.294117647058824,
+    "total_score_2": 10,
+    "predicted_score": 11.147058823529413
+   },
+   {
+    "player_display_name": "Kendrick Bourne",
+    "total_score": 4.266666666666667,
+    "total_score_2": 18,
+    "predicted_score": 11.133333333333333
+   },
+   {
+    "player_display_name": "Rashee Rice",
+    "total_score": 19.25,
+    "total_score_2": 3,
+    "predicted_score": 11.125
+   },
+   {
+    "player_display_name": "Drake London",
+    "total_score": 18.25,
+    "total_score_2": 4,
+    "predicted_score": 11.125
+   },
+   {
+    "player_display_name": "Tee Higgins",
+    "total_score": 12.066666666666666,
+    "total_score_2": 9,
+    "predicted_score": 10.533333333333333
+   },
+   {
+    "player_display_name": "Devaughn Vele",
+    "total_score": 5.888888888888889,
+    "total_score_2": 15,
+    "predicted_score": 10.444444444444445
+   },
+   {
+    "player_display_name": "Kalif Raymond",
+    "total_score": 1.8,
+    "total_score_2": 19,
+    "predicted_score": 10.4
+   },
+   {
+    "player_display_name": "Davante Adams",
+    "total_score": 14.470588235294118,
+    "total_score_2": 6,
+    "predicted_score": 10.235294117647058
+   },
+   {
+    "player_display_name": "A.J. Brown",
+    "total_score": 15.9375,
+    "total_score_2": 4,
+    "predicted_score": 9.96875
+   },
+   {
+    "player_display_name": "Jameson Williams",
+    "total_score": 11.823529411764707,
+    "total_score_2": 8,
+    "predicted_score": 9.911764705882353
+   },
+   {
+    "player_display_name": "DeVonta Smith",
+    "total_score": 12.61111111111111,
+    "total_score_2": 7,
+    "predicted_score": 9.805555555555555
+   },
+   {
+    "player_display_name": "Khalil Shakir",
+    "total_score": 11.277777777777779,
+    "total_score_2": 8,
+    "predicted_score": 9.63888888888889
+   },
+   {
+    "player_display_name": "Keenan Allen",
+    "total_score": 10.777777777777779,
+    "total_score_2": 7,
+    "predicted_score": 8.88888888888889
+   },
+   {
+    "player_display_name": "Chris Godwin Jr.",
+    "total_score": 8.777777777777779,
+    "total_score_2": 7,
+    "predicted_score": 7.888888888888889
+   },
+   {
+    "player_display_name": "Rome Odunze",
+    "total_score": 12.214285714285714,
+    "total_score_2": 3,
+    "predicted_score": 7.607142857142857
+   },
+   {
+    "player_display_name": "Quentin Johnston",
+    "total_score": 11.142857142857142,
+    "total_score_2": 4,
+    "predicted_score": 7.571428571428571
+   },
+   {
+    "player_display_name": "Michael Pittman",
+    "total_score": 11.058823529411764,
+    "total_score_2": 4,
+    "predicted_score": 7.529411764705882
+   },
+   {
+    "player_display_name": "DeMario Douglas",
+    "total_score": 3.5,
+    "total_score_2": 11,
+    "predicted_score": 7.25
+   },
+   {
+    "player_display_name": "Jakobi Meyers",
+    "total_score": 9.882352941176471,
+    "total_score_2": 4,
+    "predicted_score": 6.9411764705882355
+   },
+   {
+    "player_display_name": "Terry McLaurin",
+    "total_score": 11.7,
+    "total_score_2": 2,
+    "predicted_score": 6.85
+   },
+   {
+    "player_display_name": "Courtland Sutton",
+    "total_score": 12.421052631578947,
+    "total_score_2": 1,
+    "predicted_score": 6.7105263157894735
+   },
+   {
+    "player_display_name": "Xavier Worthy",
+    "total_score": 7.0,
+    "total_score_2": 6,
+    "predicted_score": 6.5
+   },
+   {
+    "player_display_name": "Dontayvion Wicks",
+    "total_score": 3.8461538461538463,
+    "total_score_2": 9,
+    "predicted_score": 6.423076923076923
+   },
+   {
+    "player_display_name": "Mack Hollins",
+    "total_score": 7.5,
+    "total_score_2": 5,
+    "predicted_score": 6.25
+   },
+   {
+    "player_display_name": "Jayden Reed",
+    "total_score": 6.5,
+    "total_score_2": 6,
+    "predicted_score": 6.25
+   },
+   {
+    "player_display_name": "Malik Washington",
+    "total_score": 3.8823529411764706,
+    "total_score_2": 8,
+    "predicted_score": 5.9411764705882355
+   },
+   {
+    "player_display_name": "Jaylen Waddle",
+    "total_score": 11.875,
+    "total_score_2": 0,
+    "predicted_score": 5.9375
+   },
+   {
+    "player_display_name": "Brian Thomas Jr.",
+    "total_score": 8.8,
+    "total_score_2": 3,
+    "predicted_score": 5.9
+   },
+   {
+    "player_display_name": "Luther Burden III",
+    "total_score": 6.705882352941177,
+    "total_score_2": 5,
+    "predicted_score": 5.852941176470589
+   },
+   {
+    "player_display_name": "Tre Tucker",
+    "total_score": 8.352941176470589,
+    "total_score_2": 3,
+    "predicted_score": 5.676470588235294
+   },
+   {
+    "player_display_name": "Elic Ayomanor",
+    "total_score": 7.0,
+    "total_score_2": 4,
+    "predicted_score": 5.5
+   },
+   {
+    "player_display_name": "Josh Downs",
+    "total_score": 6.6875,
+    "total_score_2": 4,
+    "predicted_score": 5.34375
+   },
+   {
+    "player_display_name": "Adonai Mitchell",
+    "total_score": 5.625,
+    "total_score_2": 5,
+    "predicted_score": 5.3125
+   },
+   {
+    "player_display_name": "Pat Bryant",
+    "total_score": 3.6666666666666665,
+    "total_score_2": 6,
+    "predicted_score": 4.833333333333333
+   },
+   {
+    "player_display_name": "Troy Franklin",
+    "total_score": 9.529411764705882,
+    "total_score_2": 0,
+    "predicted_score": 4.764705882352941
+   },
+   {
+    "player_display_name": "Romeo Doubs",
+    "total_score": 9.470588235294118,
+    "total_score_2": 0,
+    "predicted_score": 4.735294117647059
+   },
+   {
+    "player_display_name": "Jerry Jeudy",
+    "total_score": 7.176470588235294,
+    "total_score_2": 2,
+    "predicted_score": 4.588235294117647
+   },
+   {
+    "player_display_name": "Marvin Harrison Jr.",
+    "total_score": 9.166666666666666,
+    "total_score_2": 0,
+    "predicted_score": 4.583333333333333
+   },
+   {
+    "player_display_name": "Jalen Nailor",
+    "total_score": 3.9411764705882355,
+    "total_score_2": 5,
+    "predicted_score": 4.470588235294118
+   },
+   {
+    "player_display_name": "Xavier Hutchinson",
+    "total_score": 3.8333333333333335,
+    "total_score_2": 5,
+    "predicted_score": 4.416666666666667
+   },
+   {
+    "player_display_name": "Jordan Addison",
+    "total_score": 8.571428571428571,
+    "total_score_2": 0,
+    "predicted_score": 4.285714285714286
+   },
+   {
+    "player_display_name": "Cooper Kupp",
+    "total_score": 6.368421052631579,
+    "total_score_2": 2,
+    "predicted_score": 4.184210526315789
+   },
+   {
+    "player_display_name": "Jauan Jennings",
+    "total_score": 8.352941176470589,
+    "total_score_2": 0,
+    "predicted_score": 4.176470588235294
+   },
+   {
+    "player_display_name": "Ryan Flournoy",
+    "total_score": 6.2,
+    "total_score_2": 2,
+    "predicted_score": 4.1
+   },
+   {
+    "player_display_name": "Demarcus Robinson",
+    "total_score": 2.6875,
+    "total_score_2": 5,
+    "predicted_score": 3.84375
+   },
+   {
+    "player_display_name": "Roman Wilson",
+    "total_score": 1.6666666666666667,
+    "total_score_2": 6,
+    "predicted_score": 3.8333333333333335
+   },
+   {
+    "player_display_name": "Jack Bech",
+    "total_score": 1.3571428571428572,
+    "total_score_2": 6,
+    "predicted_score": 3.678571428571429
+   },
+   {
+    "player_display_name": "Rashid Shaheed",
+    "total_score": 6.333333333333333,
+    "total_score_2": 1,
+    "predicted_score": 3.6666666666666665
+   },
+   {
+    "player_display_name": "Tre Harris",
+    "total_score": 1.9411764705882353,
+    "total_score_2": 5,
+    "predicted_score": 3.4705882352941178
+   },
+   {
+    "player_display_name": "Josh Palmer",
+    "total_score": 2.3333333333333335,
+    "total_score_2": 4,
+    "predicted_score": 3.166666666666667
+   },
+   {
+    "player_display_name": "Keon Coleman",
+    "total_score": 6.0,
+    "total_score_2": 0,
+    "predicted_score": 3.0
+   },
+   {
+    "player_display_name": "Darnell Mooney",
+    "total_score": 4.666666666666667,
+    "total_score_2": 1,
+    "predicted_score": 2.8333333333333335
+   },
+   {
+    "player_display_name": "Kayshon Boutte",
+    "total_score": 5.666666666666667,
+    "total_score_2": 0,
+    "predicted_score": 2.8333333333333335
+   },
+   {
+    "player_display_name": "Chimere Dike",
+    "total_score": 5.352941176470588,
+    "total_score_2": 0,
+    "predicted_score": 2.676470588235294
+   },
+   {
+    "player_display_name": "Chris Moore",
+    "total_score": 1.9,
+    "total_score_2": 3,
+    "predicted_score": 2.45
+   },
+   {
+    "player_display_name": "Marvin Mims Jr.",
+    "total_score": 4.882352941176471,
+    "total_score_2": 0,
+    "predicted_score": 2.4411764705882355
+   },
+   {
+    "player_display_name": "Jaylin Noel",
+    "total_score": 1.7894736842105263,
+    "total_score_2": 3,
+    "predicted_score": 2.3947368421052633
+   },
+   {
+    "player_display_name": "Jahdae Walker",
+    "total_score": 1.6666666666666667,
+    "total_score_2": 3,
+    "predicted_score": 2.3333333333333335
+   },
+   {
+    "player_display_name": "Tyquan Thornton",
+    "total_score": 4.5,
+    "total_score_2": 0,
+    "predicted_score": 2.25
+   },
+   {
+    "player_display_name": "Olamide Zaccheaus",
+    "total_score": 4.25,
+    "total_score_2": 0,
+    "predicted_score": 2.125
+   },
+   {
+    "player_display_name": "Dyami Brown",
+    "total_score": 2.909090909090909,
+    "total_score_2": 1,
+    "predicted_score": 1.9545454545454546
+   },
+   {
+    "player_display_name": "Andrei Iosivas",
+    "total_score": 3.8,
+    "total_score_2": 0,
+    "predicted_score": 1.9
+   },
+   {
+    "player_display_name": "Jahan Dotson",
+    "total_score": 1.5625,
+    "total_score_2": 2,
+    "predicted_score": 1.78125
+   },
+   {
+    "player_display_name": "Tez Johnson",
+    "total_score": 3.533333333333333,
+    "total_score_2": 0,
+    "predicted_score": 1.7666666666666666
+   },
+   {
+    "player_display_name": "Greg Dortch",
+    "total_score": 3.5,
+    "total_score_2": 0,
+    "predicted_score": 1.75
+   },
+   {
+    "player_display_name": "Xavier Legette",
+    "total_score": 4.3125,
+    "total_score_2": -1,
+    "predicted_score": 1.65625
+   },
+   {
+    "player_display_name": "Isaiah Williams",
+    "total_score": 2.6666666666666665,
+    "total_score_2": 0,
+    "predicted_score": 1.3333333333333333
+   },
+   {
+    "player_display_name": "Rashod Bateman",
+    "total_score": 2.5384615384615383,
+    "total_score_2": 0,
+    "predicted_score": 1.2692307692307692
+   },
+   {
+    "player_display_name": "Isaac TeSlaa",
+    "total_score": 2.4285714285714284,
+    "total_score_2": 0,
+    "predicted_score": 1.2142857142857142
+   },
+   {
+    "player_display_name": "KaVontae Turpin",
+    "total_score": 1.9333333333333333,
+    "total_score_2": 0,
+    "predicted_score": 0.9666666666666667
+   },
+   {
+    "player_display_name": "Kyle Williams",
+    "total_score": 1.5294117647058822,
+    "total_score_2": 0,
+    "predicted_score": 0.7647058823529411
+   },
+   {
+    "player_display_name": "Xavier Smith",
+    "total_score": 1.263157894736842,
+    "total_score_2": 0,
+    "predicted_score": 0.631578947368421
+   },
+   {
+    "player_display_name": "KhaDarel Hodge",
+    "total_score": 1.25,
+    "total_score_2": 0,
+    "predicted_score": 0.625
+   },
+   {
+    "player_display_name": "Braxton Berrios",
+    "total_score": 1.2,
+    "total_score_2": 0,
+    "predicted_score": 0.6
+   },
+   {
+    "player_display_name": "Jaylin Lane",
+    "total_score": 1.2,
+    "total_score_2": 0,
+    "predicted_score": 0.6
+   },
+   {
+    "player_display_name": "Konata Mumpfield",
+    "total_score": 1.1538461538461537,
+    "total_score_2": 0,
+    "predicted_score": 0.5769230769230769
+   },
+   {
+    "player_display_name": "Darius Cooper",
+    "total_score": 1.0,
+    "total_score_2": 0,
+    "predicted_score": 0.5
+   },
+   {
+    "player_display_name": "Derius Davis",
+    "total_score": 0.0,
+    "total_score_2": 1,
+    "predicted_score": 0.5
+   },
+   {
+    "player_display_name": "Cody White",
+    "total_score": 0.875,
+    "total_score_2": 0,
+    "predicted_score": 0.4375
+   },
+   {
+    "player_display_name": "Bo Melton",
+    "total_score": 0.7692307692307693,
+    "total_score_2": 0,
+    "predicted_score": 0.38461538461538464
+   },
+   {
+    "player_display_name": "Tom Kennedy",
+    "total_score": 0.6666666666666666,
+    "total_score_2": 0,
+    "predicted_score": 0.3333333333333333
+   },
+   {
+    "player_display_name": "Jalen Royals",
+    "total_score": 0.5,
+    "total_score_2": 0,
+    "predicted_score": 0.25
+   },
+   {
+    "player_display_name": "Malachi Corley",
+    "total_score": 0.5,
+    "total_score_2": 0,
+    "predicted_score": 0.25
+   },
+   {
+    "player_display_name": "Brycen Tremayne",
+    "total_score": 0.5,
+    "total_score_2": 0,
+    "predicted_score": 0.25
+   },
+   {
+    "player_display_name": "Kameron Johnson",
+    "total_score": 0.47058823529411764,
+    "total_score_2": 0,
+    "predicted_score": 0.23529411764705882
+   },
+   {
+    "player_display_name": "Jordan Whittington",
+    "total_score": 0.47058823529411764,
+    "total_score_2": 0,
+    "predicted_score": 0.23529411764705882
+   },
+   {
+    "player_display_name": "Britain Covey",
+    "total_score": 0.42857142857142855,
+    "total_score_2": 0,
+    "predicted_score": 0.21428571428571427
+   },
+   {
+    "player_display_name": "Jimmy Horn Jr.",
+    "total_score": 0.36363636363636365,
+    "total_score_2": 0,
+    "predicted_score": 0.18181818181818182
+   },
+   {
+    "player_display_name": "Skyy Moore",
+    "total_score": 0.05263157894736842,
+    "total_score_2": 0,
+    "predicted_score": 0.02631578947368421
+   },
+   {
+    "player_display_name": "Kaden Davis",
+    "total_score": 0.0,
+    "total_score_2": 0,
+    "predicted_score": 0.0
+   },
+   {
+    "player_display_name": "Tay Martin",
+    "total_score": 0.0,
+    "total_score_2": 0,
+    "predicted_score": 0.0
+   },
+   {
+    "player_display_name": "Nikko Remigio",
+    "total_score": 0.0,
+    "total_score_2": 0,
+    "predicted_score": 0.0
+   },
+   {
+    "player_display_name": "Devin Duvernay",
+    "total_score": 0.0,
+    "total_score_2": 0,
+    "predicted_score": 0.0
+   },
+   {
+    "player_display_name": "Dareke Young",
+    "total_score": 0.0,
+    "total_score_2": 0,
+    "predicted_score": 0.0
+   },
+   {
+    "player_display_name": "Simi Fehoko",
+    "total_score": 0.0,
+    "total_score_2": 0,
+    "predicted_score": 0.0
+   },
+   {
+    "player_display_name": "Jared Wayne",
+    "total_score": 0.0,
+    "total_score_2": 0,
+    "predicted_score": 0.0
+   },
+   {
+    "player_display_name": "Laquon Treadwell",
+    "total_score": 0.0,
+    "total_score_2": 0,
+    "predicted_score": 0.0
+   },
+   {
+    "player_display_name": "Chris Blair",
+    "total_score": 0.0,
+    "total_score_2": 0,
+    "predicted_score": 0.0
+   },
+   {
+    "player_display_name": "LaJohntay Wester",
+    "total_score": 0.0,
+    "total_score_2": 0,
+    "predicted_score": 0.0
+   },
+   {
+    "player_display_name": "Myles Price",
+    "total_score": 0.0,
+    "total_score_2": 0,
+    "predicted_score": 0.0
+   },
+   {
+    "player_display_name": "Ashton Dulin",
+    "total_score": 0.9166666666666666,
+    "total_score_2": -1,
+    "predicted_score": -0.041666666666666685
+   },
+   {
+    "player_display_name": "Jonathan Mingo",
+    "total_score": -0.2,
+    "total_score_2": 0,
+    "predicted_score": -0.1
+   },
+   {
+    "player_display_name": "Arian Smith",
+    "total_score": 0.0,
+    "total_score_2": -1,
+    "predicted_score": -0.5
+   }
+  ]
+ },
+ "cold_start_3": {
+  "inputs": [
+   "season-2025-average",
+   "2025-w17",
+   "2025-w18"
+  ],
+  "output": [
+   {
+    "player_display_name": "Ja'Marr Chase",
+    "total_score": 22.0625,
+    "total_score_2": 23,
+    "total_score_3": 28,
+    "predicted_score": 24.354166666666664
+   },
+   {
+    "player_display_name": "Amon-Ra St. Brown",
+    "total_score": 20.0,
+    "total_score_2": 20,
+    "total_score_3": 29,
+    "predicted_score": 23.0
+   },
+   {
+    "player_display_name": "Puka Nacua",
+    "total_score": 24.0,
+    "total_score_2": 18,
+    "total_score_3": 23,
+    "predicted_score": 21.666666666666664
+   },
+   {
+    "player_display_name": "Jaxon Smith-Njigba",
+    "total_score": 22.5,
+    "total_score_2": 18,
+    "total_score_3": 19,
+    "predicted_score": 19.833333333333332
+   },
+   {
+    "player_display_name": "Michael Wilson",
+    "total_score": 12.294117647058824,
+    "total_score_2": 26,
+    "total_score_3": 20,
+    "predicted_score": 19.431372549019606
+   },
+   {
+    "player_display_name": "Parker Washington",
+    "total_score": 11.235294117647058,
+    "total_score_2": 24,
+    "total_score_3": 18,
+    "predicted_score": 17.745098039215684
+   },
+   {
+    "player_display_name": "Justin Jefferson",
+    "total_score": 15.176470588235293,
+    "total_score_2": 8,
+    "total_score_3": 27,
+    "predicted_score": 16.72549019607843
+   },
+   {
+    "player_display_name": "Zay Flowers",
+    "total_score": 14.117647058823529,
+    "total_score_2": 10,
+    "total_score_3": 24,
+    "predicted_score": 16.03921568627451
+   },
+   {
+    "player_display_name": "Luther Burden III",
+    "total_score": 6.705882352941177,
+    "total_score_2": 28,
+    "total_score_3": 5,
+    "predicted_score": 13.235294117647058
+   },
+   {
+    "player_display_name": "Elic Ayomanor",
+    "total_score": 7.0,
+    "total_score_2": 14,
+    "total_score_3": 17,
+    "predicted_score": 12.666666666666666
+   },
+   {
+    "player_display_name": "Tee Higgins",
+    "total_score": 12.066666666666666,
+    "total_score_2": 6,
+    "total_score_3": 19,
+    "predicted_score": 12.355555555555554
+   },
+   {
+    "player_display_name": "Alec Pierce",
+    "total_score": 10.8,
+    "total_score_2": 5,
+    "total_score_3": 21,
+    "predicted_score": 12.266666666666666
+   },
+   {
+    "player_display_name": "Terry McLaurin",
+    "total_score": 11.7,
+    "total_score_2": 16,
+    "total_score_3": 9,
+    "predicted_score": 12.233333333333334
+   },
+   {
+    "player_display_name": "Drake London",
+    "total_score": 18.25,
+    "total_score_2": 1,
+    "total_score_3": 17,
+    "predicted_score": 12.083333333333332
+   },
+   {
+    "player_display_name": "CeeDee Lamb",
+    "total_score": 18.307692307692307,
+    "total_score_2": 16,
+    "total_score_3": 0,
+    "predicted_score": 11.435897435897434
+   },
+   {
+    "player_display_name": "Stefon Diggs",
+    "total_score": 10.285714285714286,
+    "total_score_2": 20,
+    "total_score_3": 3,
+    "predicted_score": 11.095238095238095
+   },
+   {
+    "player_display_name": "Chris Godwin Jr.",
+    "total_score": 8.777777777777779,
+    "total_score_2": 23,
+    "total_score_3": 0,
+    "predicted_score": 10.592592592592592
+   },
+   {
+    "player_display_name": "George Pickens",
+    "total_score": 17.176470588235293,
+    "total_score_2": 12,
+    "total_score_3": 1,
+    "predicted_score": 10.058823529411764
+   },
+   {
+    "player_display_name": "Keenan Allen",
+    "total_score": 10.777777777777779,
+    "total_score_2": -1,
+    "total_score_3": 20,
+    "predicted_score": 9.925925925925926
+   },
+   {
+    "player_display_name": "Jalen McMillan",
+    "total_score": 6.0,
+    "total_score_2": 23,
+    "total_score_3": 0,
+    "predicted_score": 9.666666666666666
+   },
+   {
+    "player_display_name": "Jerry Jeudy",
+    "total_score": 7.176470588235294,
+    "total_score_2": 16,
+    "total_score_3": 5,
+    "predicted_score": 9.392156862745097
+   },
+   {
+    "player_display_name": "Mike Evans",
+    "total_score": 13.0,
+    "total_score_2": 12,
+    "total_score_3": 1,
+    "predicted_score": 8.666666666666666
+   },
+   {
+    "player_display_name": "Deebo Samuel Sr.",
+    "total_score": 11.6875,
+    "total_score_2": 9,
+    "total_score_3": 5,
+    "predicted_score": 8.5625
+   },
+   {
+    "player_display_name": "Gunner Olszewski",
+    "total_score": 1.6875,
+    "total_score_2": 1,
+    "total_score_3": 23,
+    "predicted_score": 8.5625
+   },
+   {
+    "player_display_name": "Jameson Williams",
+    "total_score": 11.823529411764707,
+    "total_score_2": 2,
+    "total_score_3": 11,
+    "predicted_score": 8.274509803921568
+   },
+   {
+    "player_display_name": "Tre Tucker",
+    "total_score": 8.352941176470589,
+    "total_score_2": 8,
+    "total_score_3": 8,
+    "predicted_score": 8.117647058823529
+   },
+   {
+    "player_display_name": "Tetairoa McMillan",
+    "total_score": 13.055555555555555,
+    "total_score_2": 2,
+    "total_score_3": 9,
+    "predicted_score": 8.018518518518519
+   },
+   {
+    "player_display_name": "Jakobi Meyers",
+    "total_score": 9.882352941176471,
+    "total_score_2": 8,
+    "total_score_3": 6,
+    "predicted_score": 7.96078431372549
+   },
+   {
+    "player_display_name": "DeVonta Smith",
+    "total_score": 12.61111111111111,
+    "total_score_2": 5,
+    "total_score_3": 6,
+    "predicted_score": 7.87037037037037
+   },
+   {
+    "player_display_name": "Kevin Austin Jr.",
+    "total_score": 4.6,
+    "total_score_2": 10,
+    "total_score_3": 9,
+    "predicted_score": 7.866666666666667
+   },
+   {
+    "player_display_name": "Brian Thomas Jr.",
+    "total_score": 8.8,
+    "total_score_2": 9,
+    "total_score_3": 5,
+    "predicted_score": 7.6
+   },
+   {
+    "player_display_name": "Courtland Sutton",
+    "total_score": 12.421052631578947,
+    "total_score_2": 10,
+    "total_score_3": 0,
+    "predicted_score": 7.473684210526315
+   },
+   {
+    "player_display_name": "Xavier Hutchinson",
+    "total_score": 3.8333333333333335,
+    "total_score_2": 2,
+    "total_score_3": 16,
+    "predicted_score": 7.277777777777779
+   },
+   {
+    "player_display_name": "Jayden Higgins",
+    "total_score": 5.684210526315789,
+    "total_score_2": 11,
+    "total_score_3": 5,
+    "predicted_score": 7.228070175438596
+   },
+   {
+    "player_display_name": "Jalen Coker",
+    "total_score": 7.583333333333333,
+    "total_score_2": 0,
+    "total_score_3": 14,
+    "predicted_score": 7.194444444444444
+   },
+   {
+    "player_display_name": "Jauan Jennings",
+    "total_score": 8.352941176470589,
+    "total_score_2": 6,
+    "total_score_3": 6,
+    "predicted_score": 6.784313725490195
+   },
+   {
+    "player_display_name": "Theo Wease Jr.",
+    "total_score": 6.0,
+    "total_score_2": 7,
+    "total_score_3": 7,
+    "predicted_score": 6.666666666666666
+   },
+   {
+    "player_display_name": "Marquez Valdes-Scantling",
+    "total_score": 2.4,
+    "total_score_2": 8,
+    "total_score_3": 9,
+    "predicted_score": 6.466666666666666
+   },
+   {
+    "player_display_name": "Isaiah Williams",
+    "total_score": 2.6666666666666665,
+    "total_score_2": 4,
+    "total_score_3": 12,
+    "predicted_score": 6.222222222222221
+   },
+   {
+    "player_display_name": "Marquise Brown",
+    "total_score": 6.0625,
+    "total_score_2": 0,
+    "total_score_3": 11,
+    "predicted_score": 5.6875
+   },
+   {
+    "player_display_name": "Emeka Egbuka",
+    "total_score": 11.941176470588236,
+    "total_score_2": 4,
+    "total_score_3": 1,
+    "predicted_score": 5.647058823529411
+   },
+   {
+    "player_display_name": "Dante Pettis",
+    "total_score": 1.875,
+    "total_score_2": 5,
+    "total_score_3": 10,
+    "predicted_score": 5.625
+   },
+   {
+    "player_display_name": "Adonai Mitchell",
+    "total_score": 5.625,
+    "total_score_2": 10,
+    "total_score_3": 1,
+    "predicted_score": 5.541666666666666
+   },
+   {
+    "player_display_name": "Gabe Davis",
+    "total_score": 2.5714285714285716,
+    "total_score_2": 0,
+    "total_score_3": 14,
+    "predicted_score": 5.523809523809524
+   },
+   {
+    "player_display_name": "Darius Slayton",
+    "total_score": 5.0,
+    "total_score_2": 2,
+    "total_score_3": 9,
+    "predicted_score": 5.333333333333333
+   },
+   {
+    "player_display_name": "Darnell Mooney",
+    "total_score": 4.666666666666667,
+    "total_score_2": 3,
+    "total_score_3": 8,
+    "predicted_score": 5.222222222222222
+   },
+   {
+    "player_display_name": "Chimere Dike",
+    "total_score": 5.352941176470588,
+    "total_score_2": 6,
+    "total_score_3": 4,
+    "predicted_score": 5.117647058823529
+   },
+   {
+    "player_display_name": "Michael Pittman",
+    "total_score": 11.058823529411764,
+    "total_score_2": 1,
+    "total_score_3": 2,
+    "predicted_score": 4.686274509803921
+   },
+   {
+    "player_display_name": "Josh Downs",
+    "total_score": 6.6875,
+    "total_score_2": 2,
+    "total_score_3": 5,
+    "predicted_score": 4.5625
+   },
+   {
+    "player_display_name": "Troy Franklin",
+    "total_score": 9.529411764705882,
+    "total_score_2": 4,
+    "total_score_3": 0,
+    "predicted_score": 4.509803921568627
+   },
+   {
+    "player_display_name": "Jahan Dotson",
+    "total_score": 1.5625,
+    "total_score_2": 0,
+    "total_score_3": 11,
+    "predicted_score": 4.1875
+   },
+   {
+    "player_display_name": "DJ Moore",
+    "total_score": 8.157894736842104,
+    "total_score_2": 2,
+    "total_score_3": 2,
+    "predicted_score": 4.052631578947368
+   },
+   {
+    "player_display_name": "Malik Washington",
+    "total_score": 3.8823529411764706,
+    "total_score_2": 2,
+    "total_score_3": 6,
+    "predicted_score": 3.9607843137254903
+   },
+   {
+    "player_display_name": "Isaac TeSlaa",
+    "total_score": 2.4285714285714284,
+    "total_score_2": 9,
+    "total_score_3": 0,
+    "predicted_score": 3.8095238095238093
+   },
+   {
+    "player_display_name": "Xavier Smith",
+    "total_score": 1.263157894736842,
+    "total_score_2": 10,
+    "total_score_3": 0,
+    "predicted_score": 3.754385964912281
+   },
+   {
+    "player_display_name": "Jalen Tolbert",
+    "total_score": 2.0833333333333335,
+    "total_score_2": 9,
+    "total_score_3": 0,
+    "predicted_score": 3.6944444444444446
+   },
+   {
+    "player_display_name": "Marvin Mims Jr.",
+    "total_score": 4.882352941176471,
+    "total_score_2": 4,
+    "total_score_3": 2,
+    "predicted_score": 3.627450980392157
+   },
+   {
+    "player_display_name": "Andrei Iosivas",
+    "total_score": 3.8,
+    "total_score_2": 7,
+    "total_score_3": 0,
+    "predicted_score": 3.6
+   },
+   {
+    "player_display_name": "John Metchie III",
+    "total_score": 4.0,
+    "total_score_2": 3,
+    "total_score_3": 3,
+    "predicted_score": 3.333333333333333
+   },
+   {
+    "player_display_name": "Jaylin Noel",
+    "total_score": 1.7894736842105263,
+    "total_score_2": 8,
+    "total_score_3": 0,
+    "predicted_score": 3.2631578947368416
+   },
+   {
+    "player_display_name": "Matthew Golden",
+    "total_score": 3.6666666666666665,
+    "total_score_2": 2,
+    "total_score_3": 4,
+    "predicted_score": 3.222222222222222
+   },
+   {
+    "player_display_name": "Jordan Addison",
+    "total_score": 8.571428571428571,
+    "total_score_2": 0,
+    "total_score_3": 1,
+    "predicted_score": 3.1904761904761902
+   },
+   {
+    "player_display_name": "David Sills",
+    "total_score": 3.1666666666666665,
+    "total_score_2": 6,
+    "total_score_3": 0,
+    "predicted_score": 3.0555555555555554
+   },
+   {
+    "player_display_name": "Ronnie Bell",
+    "total_score": 3.0,
+    "total_score_2": 0,
+    "total_score_3": 6,
+    "predicted_score": 3.0
+   },
+   {
+    "player_display_name": "KaVontae Turpin",
+    "total_score": 1.9333333333333333,
+    "total_score_2": 7,
+    "total_score_3": 0,
+    "predicted_score": 2.977777777777778
+   },
+   {
+    "player_display_name": "Scott Miller",
+    "total_score": 1.8,
+    "total_score_2": 7,
+    "total_score_3": 0,
+    "predicted_score": 2.9333333333333336
+   },
+   {
+    "player_display_name": "Christian Kirk",
+    "total_score": 6.538461538461538,
+    "total_score_2": 2,
+    "total_score_3": 0,
+    "predicted_score": 2.846153846153846
+   },
+   {
+    "player_display_name": "Tre Harris",
+    "total_score": 1.9411764705882353,
+    "total_score_2": 0,
+    "total_score_3": 6,
+    "predicted_score": 2.6470588235294117
+   },
+   {
+    "player_display_name": "Adam Thielen",
+    "total_score": 0.8666666666666667,
+    "total_score_2": 3,
+    "total_score_3": 4,
+    "predicted_score": 2.6222222222222222
+   },
+   {
+    "player_display_name": "Kalif Raymond",
+    "total_score": 1.8,
+    "total_score_2": 0,
+    "total_score_3": 6,
+    "predicted_score": 2.5999999999999996
+   },
+   {
+    "player_display_name": "Kyle Williams",
+    "total_score": 1.5294117647058822,
+    "total_score_2": 6,
+    "total_score_3": 0,
+    "predicted_score": 2.5098039215686274
+   },
+   {
+    "player_display_name": "DeMario Douglas",
+    "total_score": 3.5,
+    "total_score_2": 0,
+    "total_score_3": 4,
+    "predicted_score": 2.5
+   },
+   {
+    "player_display_name": "Xavier Legette",
+    "total_score": 4.3125,
+    "total_score_2": 0,
+    "total_score_3": 3,
+    "predicted_score": 2.4375
+   },
+   {
+    "player_display_name": "Jalen Nailor",
+    "total_score": 3.9411764705882355,
+    "total_score_2": 0,
+    "total_score_3": 3,
+    "predicted_score": 2.313725490196078
+   },
+   {
+    "player_display_name": "Demarcus Robinson",
+    "total_score": 2.6875,
+    "total_score_2": 0,
+    "total_score_3": 4,
+    "predicted_score": 2.2291666666666665
+   },
+   {
+    "player_display_name": "Jahdae Walker",
+    "total_score": 1.6666666666666667,
+    "total_score_2": 2,
+    "total_score_3": 3,
+    "predicted_score": 2.2222222222222223
+   },
+   {
+    "player_display_name": "Efton Chism III",
+    "total_score": 0.6,
+    "total_score_2": 5,
+    "total_score_3": 1,
+    "predicted_score": 2.1999999999999997
+   },
+   {
+    "player_display_name": "Treylon Burks",
+    "total_score": 2.375,
+    "total_score_2": 0,
+    "total_score_3": 4,
+    "predicted_score": 2.125
+   },
+   {
+    "player_display_name": "Cooper Kupp",
+    "total_score": 6.368421052631579,
+    "total_score_2": -2,
+    "total_score_3": 2,
+    "predicted_score": 2.1228070175438596
+   },
+   {
+    "player_display_name": "Rashid Shaheed",
+    "total_score": 6.333333333333333,
+    "total_score_2": 0,
+    "total_score_3": 0,
+    "predicted_score": 2.1111111111111107
+   },
+   {
+    "player_display_name": "James Proche",
+    "total_score": 1.1666666666666667,
+    "total_score_2": 5,
+    "total_score_3": 0,
+    "predicted_score": 2.0555555555555554
+   },
+   {
+    "player_display_name": "Darius Cooper",
+    "total_score": 1.0,
+    "total_score_2": 0,
+    "total_score_3": 5,
+    "predicted_score": 2.0
+   },
+   {
+    "player_display_name": "Tyler Lockett",
+    "total_score": 1.8823529411764706,
+    "total_score_2": 4,
+    "total_score_3": -1,
+    "predicted_score": 1.6274509803921569
+   },
+   {
+    "player_display_name": "Dont'e Thornton Jr.",
+    "total_score": 1.7272727272727273,
+    "total_score_2": 3,
+    "total_score_3": 0,
+    "predicted_score": 1.5757575757575757
+   },
+   {
+    "player_display_name": "Kendrick Bourne",
+    "total_score": 4.266666666666667,
+    "total_score_2": 0,
+    "total_score_3": 0,
+    "predicted_score": 1.422222222222222
+   },
+   {
+    "player_display_name": "JuJu Smith-Schuster",
+    "total_score": 2.1176470588235294,
+    "total_score_2": 2,
+    "total_score_3": 0,
+    "predicted_score": 1.372549019607843
+   },
+   {
+    "player_display_name": "Bo Melton",
+    "total_score": 0.7692307692307693,
+    "total_score_2": 2,
+    "total_score_3": 1,
+    "predicted_score": 1.2564102564102564
+   },
+   {
+    "player_display_name": "KeAndre Lambert-Smith",
+    "total_score": 0.6,
+    "total_score_2": 0,
+    "total_score_3": 3,
+    "predicted_score": 1.2
+   },
+   {
+    "player_display_name": "Tez Johnson",
+    "total_score": 3.533333333333333,
+    "total_score_2": 0,
+    "total_score_3": 0,
+    "predicted_score": 1.1777777777777776
+   },
+   {
+    "player_display_name": "Britain Covey",
+    "total_score": 0.42857142857142855,
+    "total_score_2": 0,
+    "total_score_3": 3,
+    "predicted_score": 1.1428571428571428
+   },
+   {
+    "player_display_name": "Josh Palmer",
+    "total_score": 2.3333333333333335,
+    "total_score_2": 0,
+    "total_score_3": 1,
+    "predicted_score": 1.1111111111111112
+   },
+   {
+    "player_display_name": "Isaiah Hodgins",
+    "total_score": 3.1666666666666665,
+    "total_score_2": 0,
+    "total_score_3": 0,
+    "predicted_score": 1.0555555555555554
+   },
+   {
+    "player_display_name": "Konata Mumpfield",
+    "total_score": 1.1538461538461537,
+    "total_score_2": 3,
+    "total_score_3": -1,
+    "predicted_score": 1.051282051282051
+   },
+   {
+    "player_display_name": "Tutu Atwell",
+    "total_score": 2.0,
+    "total_score_2": 0,
+    "total_score_3": 1,
+    "predicted_score": 1.0
+   },
+   {
+    "player_display_name": "DeAndre Hopkins",
+    "total_score": 1.8823529411764706,
+    "total_score_2": 0,
+    "total_score_3": 1,
+    "predicted_score": 0.9607843137254901
+   },
+   {
+    "player_display_name": "Cedric Tillman",
+    "total_score": 2.6666666666666665,
+    "total_score_2": 0,
+    "total_score_3": 0,
+    "predicted_score": 0.8888888888888888
+   },
+   {
+    "player_display_name": "Shedrick Jackson",
+    "total_score": 1.3333333333333333,
+    "total_score_2": 1,
+    "total_score_3": 0,
+    "predicted_score": 0.7777777777777777
+   },
+   {
+    "player_display_name": "Isaiah Bond",
+    "total_score": 2.0,
+    "total_score_2": 0,
+    "total_score_3": 0,
+    "predicted_score": 0.6666666666666666
+   },
+   {
+    "player_display_name": "Ashton Dulin",
+    "total_score": 0.9166666666666666,
+    "total_score_2": 0,
+    "total_score_3": 1,
+    "predicted_score": 0.6388888888888888
+   },
+   {
+    "player_display_name": "Tim Patrick",
+    "total_score": 1.5714285714285714,
+    "total_score_2": 0,
+    "total_score_3": 0,
+    "predicted_score": 0.5238095238095237
+   },
+   {
+    "player_display_name": "Malachi Corley",
+    "total_score": 0.5,
+    "total_score_2": 0,
+    "total_score_3": 1,
+    "predicted_score": 0.5
+   },
+   {
+    "player_display_name": "Jimmy Horn Jr.",
+    "total_score": 0.36363636363636365,
+    "total_score_2": 1,
+    "total_score_3": 0,
+    "predicted_score": 0.4545454545454546
+   },
+   {
+    "player_display_name": "Dylan Drummond",
+    "total_score": 0.8333333333333334,
+    "total_score_2": 0,
+    "total_score_3": 0,
+    "predicted_score": 0.2777777777777778
+   },
+   {
+    "player_display_name": "Tom Kennedy",
+    "total_score": 0.6666666666666666,
+    "total_score_2": 0,
+    "total_score_3": 0,
+    "predicted_score": 0.2222222222222222
+   },
+   {
+    "player_display_name": "Brycen Tremayne",
+    "total_score": 0.5,
+    "total_score_2": 0,
+    "total_score_3": 0,
+    "predicted_score": 0.16666666666666666
+   },
+   {
+    "player_display_name": "Kameron Johnson",
+    "total_score": 0.47058823529411764,
+    "total_score_2": 0,
+    "total_score_3": 0,
+    "predicted_score": 0.1568627450980392
+   },
+   {
+    "player_display_name": "Jordan Whittington",
+    "total_score": 0.47058823529411764,
+    "total_score_2": 0,
+    "total_score_3": 0,
+    "predicted_score": 0.1568627450980392
+   },
+   {
+    "player_display_name": "Cedrick Wilson Jr.",
+    "total_score": 0.16666666666666666,
+    "total_score_2": 0,
+    "total_score_3": 0,
+    "predicted_score": 0.05555555555555555
+   },
+   {
+    "player_display_name": "Gage Larvadain",
+    "total_score": 0.07692307692307693,
+    "total_score_2": 0,
+    "total_score_3": 0,
+    "predicted_score": 0.02564102564102564
+   },
+   {
+    "player_display_name": "Skyy Moore",
+    "total_score": 0.05263157894736842,
+    "total_score_2": 0,
+    "total_score_3": 0,
+    "predicted_score": 0.017543859649122806
+   },
+   {
+    "player_display_name": "Mason Kinsey",
+    "total_score": 0.0,
+    "total_score_2": 0,
+    "total_score_3": 0,
+    "predicted_score": 0.0
+   },
+   {
+    "player_display_name": "Devin Duvernay",
+    "total_score": 0.0,
+    "total_score_2": 0,
+    "total_score_3": 0,
+    "predicted_score": 0.0
+   },
+   {
+    "player_display_name": "Arian Smith",
+    "total_score": 0.0,
+    "total_score_2": 0,
+    "total_score_3": 0,
+    "predicted_score": 0.0
+   },
+   {
+    "player_display_name": "Ke'Shawn Williams",
+    "total_score": 0.0,
+    "total_score_2": 0,
+    "total_score_3": 0,
+    "predicted_score": 0.0
+   },
+   {
+    "player_display_name": "Deven Thompkins",
+    "total_score": 0.0,
+    "total_score_2": 0,
+    "total_score_3": 0,
+    "predicted_score": 0.0
+   },
+   {
+    "player_display_name": "River Cracraft",
+    "total_score": 0.0,
+    "total_score_2": 0,
+    "total_score_3": 0,
+    "predicted_score": 0.0
+   },
+   {
+    "player_display_name": "Alex Bachman",
+    "total_score": 0.0,
+    "total_score_2": 0,
+    "total_score_3": 0,
+    "predicted_score": 0.0
+   },
+   {
+    "player_display_name": "LaJohntay Wester",
+    "total_score": 0.0,
+    "total_score_2": 0,
+    "total_score_3": 0,
+    "predicted_score": 0.0
+   },
+   {
+    "player_display_name": "Jonathan Mingo",
+    "total_score": -0.2,
+    "total_score_2": 0,
+    "total_score_3": 0,
+    "predicted_score": -0.06666666666666667
+   },
+   {
+    "player_display_name": "Steven Sims",
+    "total_score": -0.3333333333333333,
+    "total_score_2": 0,
+    "total_score_3": 0,
+    "predicted_score": -0.1111111111111111
+   }
+  ]
+ }
+}
