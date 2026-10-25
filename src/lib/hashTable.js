@@ -36,4 +36,19 @@ class HashTable{
         return this.buckets[index].get(player_display_name)
 
     }
+
+    searchPartial(query){
+        const q = query.toLowerCase()
+        const results = []
+
+        for(const bucket of this.buckets){
+            for ( const [name, row] of bucket){
+                if(name.toLowerCase().includes(q))
+                    results.push({name,row})
+            }
+        }
+        return results;
+    }
 }
+
+export default HashTable;

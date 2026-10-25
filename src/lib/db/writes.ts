@@ -13,7 +13,15 @@ export async function upsertPlayers(
   rows: readonly Pick<PlayerInsert, "player_id" | "player_display_name" | "position">[],
 ): Promise<void> {
   const unique = new Map<string, PlayerInsert>();
-  for (const r of rows) if (!unique.has(r.player_id)) unique.set(r.player_id, { ...r });
+  for (const r of rows) {
+    if (unique.has(r.player_id)) continue;
+    // Callers pass full stats rows; keep only the columns the players table has.
+    unique.set(r.player_id, {
+      player_id: r.player_id,
+      player_display_name: r.player_display_name,
+      position: r.position,
+    });
+  }
   if (unique.size === 0) return;
   unwrap(
     await getClient()
