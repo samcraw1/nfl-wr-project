@@ -49,3 +49,41 @@ def search_live_wrs_by_name(name, season, week, min_receiving_yards=0, min_recei
             matches.append(scored_row)
     return matches
 
+def get_current_nfl_week(season):
+    schedule = nfl.load_schedules([season])
+    incomplete = schedule.filter(pl.col("result").is_null())
+    return incomplete["week"].min() if incomplete.height > 0 else None
+
+def get_future_nfl_week(season):
+    current_week = get_current_nfl_week(season)
+    if current_week is None:
+        return []
+
+    recent_weeks = [current_week - 3, current_week - 2, current_week - 1]
+
+    scores_by_player = {}
+    for week in recent_weeks:
+        scored = load_scored_wr_week(season, week)
+        for row in scored.to_dicts():
+            scores_by_player.setdefault(row["player_display_name"], []).append(row["total_score"])
+
+    predicted = [
+        {"player_display_name": name, "predicted_score": sum(scores) / len(scores)}
+        for name, scores in scores_by_player.items()
+    ]
+    predicted.sort(key=lambda row: row["predicted_score"], reverse=True)
+    return predicted
+
+def get_previous_nfl_week(season):
+    current_week = get_current_nfl_week(season)
+    previous_week = current_week - 1 if current_week is not None and current_week > 1 else None
+    return previous_week
+
+def get_previous_week_leaders_dicts(season):
+    week = get_previous_nfl_week(season)
+    if week is None:
+        return []
+    return get_live_week_leaders_dicts(season, week)
+
+
+

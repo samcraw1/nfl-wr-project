@@ -1,3 +1,4 @@
+import requests
 import streamlit as st
 import db
 import scoreboard
@@ -59,21 +60,46 @@ def render_search():
 
 render_search()
 
-
-
 season_rankings = db.get_season_rankings(season=2025)
-week_1_stats = db.get_weekly_wr_stats(season=2026, week=1)
-stats_by_player = {row["player_id"]: row for row in week_1_stats}
-week_1_winners = db.get_weekly_rankings(season=2026, week=1)
+previous_week_leaders = db.previous_week_leaders(season=2026)
 current_week_leaders = db.get_current_week_leaders(season=2026)
+week_2_predictions = db.next_week_predictions(season=2026)
 
-for row in week_1_winners:
-    stats = stats_by_player.get(row["player_id"], {})
-    row["receptions"] = stats.get("receptions")
-    row["receiving_yards"] = stats.get("receiving_yards")
-    row["receiving_tds"] = stats.get("receiving_tds")
 
-week_2_predictions = db.get_predictions(season=2026, week=2)
+def _trim(rows):
+    return [
+        {"player": r["player_display_name"], "score": r.get("current_week_score", r.get("total_score"))}
+        for r in rows
+    ]
+
+
+data_context = (
+    "You answer questions about NFL wide receiver fantasy data. Use only this data to answer:\n"
+    f"2025 season rankings: {_trim(season_rankings)}\n"
+    f"Previous week leaders: {_trim(previous_week_leaders)}\n"
+    f"Current week leaders: {_trim(current_week_leaders)}\n"
+    f"Next week predictions: {_trim(week_2_predictions)}\n"
+)
+
+st.header("ask about the data")
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+
+for m in st.session_state.messages:
+    st.chat_message(m["role"]).write(m["content"])
+
+if prompt := st.chat_input("Ask a question"):
+    st.session_state.messages.append({"role": "user", "content": prompt})
+    st.chat_message("user").write(prompt)
+
+    messages_to_send = [{"role": "system", "content": data_context}] + st.session_state.messages
+    response = requests.post(
+        "http://localhost:11434/api/chat",
+        json={"model": "llama3.2", "messages": messages_to_send, "stream": False},
+    )
+    reply = response.json()["message"]["content"]
+    st.session_state.messages.append({"role": "assistant", "content": reply})
+    st.chat_message("assistant").write(reply)
 
 col1, col2, col3, col4 = st.columns(4)
 
@@ -86,15 +112,22 @@ with col1:
     )
 
 with col2:
-    st.header("Week 1 Rankings")
-    st.dataframe(
-        week_1_winners,
-        use_container_width=True,
-        column_order=("total_score", "rank", "player_display_name", "receptions", "receiving_yards", "receiving_tds"),
-    )
+    st.header("Previous Week Rankings")
+    if previous_week_leaders:
+        prev_column_order = tuple(
+            c for c in ("current_week_score", "total_score", "rank", "player_display_name", "receptions", "receiving_yards", "receiving_tds")
+            if c in previous_week_leaders[0]
+        )
+        st.dataframe(
+            previous_week_leaders,
+            use_container_width=True,
+            column_order=prev_column_order,
+        )
+    else:
+        st.write("No previous week data available yet.")
 
 with col3:
-    st.header("Week 2 Predictions")
+    st.header("Next Week Predictions")
     st.dataframe(
         week_2_predictions,
         use_container_width=True,

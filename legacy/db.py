@@ -71,13 +71,13 @@ def get_latest_week(season):
 
 def get_current_week_leaders(season):
 
+    live_week = live.get_current_nfl_week(season)
+    if live_week is not None:
+        live_rows = live.get_live_week_leaders_dicts(season, live_week)
+        if live_rows:
+            return live_rows
+
     last_completed_week = get_latest_week(season)
-    candidate_week = (last_completed_week or 0) + 1
-
-    live_rows = live.get_live_week_leaders_dicts(season, candidate_week)
-    if live_rows:
-        return live_rows
-
     if last_completed_week is None:
         return []
     rankings = get_weekly_rankings(season, last_completed_week)
@@ -90,6 +90,10 @@ def get_current_week_leaders(season):
         row["receiving_tds"] = player_stats.get("receiving_tds")
         row["targets"] = player_stats.get("targets")
     return rankings
+
+def previous_week_leaders(season):
+    return live.get_previous_week_leaders_dicts(season)
+
 
 
 def get_weekly_rankings(season, week):
@@ -105,13 +109,22 @@ def get_weekly_rankings(season, week):
     )
     return result.data
 
-def get_predictions(season, week):
+def next_week_predictions(season):
+    current_week = live.get_current_nfl_week(season)
+    next_week = current_week + 1 if current_week is not None else None
+    if next_week is None:
+        return []
+
+    live_predictions = live.get_future_nfl_week(season)
+    if live_predictions:
+        return live_predictions[:15]
+
     result = (
         get_client()
         .table('predictions')
         .select("player_id, season, week, predicted_score, players(player_display_name)")
         .eq("season", season)
-        .eq("week", week)
+        .eq("week", next_week)
         .order("predicted_score", desc=True)
         .limit(15)
         .execute()
