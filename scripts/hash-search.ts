@@ -3,17 +3,20 @@ import HashTable  from "@/lib/hashTable";
 import { getCurrentWeekLeaders, getSeasonRankings } from "@/lib/db/reads";
 import "dotenv/config";
 
+// One item from table.searchPartial: the player's name plus their stats row.
+type Entry = { name: string; row: { receiving_tds: number; week: number } };
+
 const table = new HashTable();
 
 for (const row of await getCurrentWeekLeaders(2026)){
     table.insert(row.player_display_name, row);
 }
 
-console.log(table.searchPartial("").map(({ name, row }) => ({ name, receiving_tds: row.receiving_tds, week: row.week })))
+console.log(table.searchPartial("").map(({ name, row }: Entry) => ({ name, receiving_tds: row.receiving_tds, week: row.week })))
 
 
 
-function wrsWithATd(entries){
+function wrsWithATd(entries: Entry[]){
 
     const moreThanOne = new Map();
 
