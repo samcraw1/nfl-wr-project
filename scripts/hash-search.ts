@@ -3,8 +3,7 @@ import HashTable  from "@/lib/hashTable";
 import { getCurrentWeekLeaders, getSeasonRankings } from "@/lib/db/reads";
 import "dotenv/config";
 
-
-
+const table = new HashTable();
 
 for (const row of await getCurrentWeekLeaders(2026)){
     table.insert(row.player_display_name, row);
