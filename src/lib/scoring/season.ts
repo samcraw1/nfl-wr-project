@@ -1,10 +1,10 @@
 import type { DropsRow, SeasonAverageRow, WrWeekStats } from "@/lib/types";
-import { wrFormula } from "@/lib/scoring/wrFormula";
+import { wr_formula } from "@/lib/scoring/formula";
 
 /**
  * Port of legacy `prediction.calculate_2025_season_score_lol()`, parameterised.
  *
- * Runs `wrFormula` for every week present in `wrStats` (regular season and
+ * Runs `wr_formula` for every week present in `wrStats` (regular season and
  * playoffs alike), then per display name averages `total_score` and sums
  * receptions / receiving yards / receiving TDs. A player who played N weeks is
  * averaged over N, so a one-week wonder and a 17-game starter are compared on
@@ -28,7 +28,7 @@ export function seasonAverage(
   >();
 
   for (const week of weeks) {
-    const scored = wrFormula(
+    const scored = wr_formula(
       wrStats.filter((r) => r.week === week),
       drops.filter((r) => r.week === week),
     );

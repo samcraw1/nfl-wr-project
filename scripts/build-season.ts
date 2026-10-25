@@ -9,7 +9,7 @@ import { nameToPlayerId } from "@/lib/ingest";
 import { loadRecAdvstats } from "@/lib/nflverse/pfrAdvstats";
 import { loadPlayerStats } from "@/lib/nflverse/playerStats";
 import { seasonAverage } from "@/lib/scoring/season";
-import { sortByScoreDesc } from "@/lib/scoring/wrFormula";
+import { sortByScoreDesc } from "@/lib/scoring/formula";
 import { TOP_N } from "@/lib/config";
 
 async function main() {

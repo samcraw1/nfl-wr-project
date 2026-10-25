@@ -19,13 +19,13 @@ import {
   predictWeekTwo,
 } from "@/lib/scoring/prediction";
 import { seasonAverage } from "@/lib/scoring/season";
-import { wrFormula } from "@/lib/scoring/wrFormula";
+import { wr_formula } from "@/lib/scoring/formula";
 import type { PredictionRow, ScoredRow } from "@/lib/types";
 import { TOP_N } from "@/lib/config";
 
 async function scoredWeek(season: number, week: number): Promise<ScoredRow[]> {
   const [wr, drops] = await Promise.all([loadWrWeek(season, week), loadDropsWeek(season, week)]);
-  return wrFormula(wr, drops);
+  return wr_formula(wr, drops);
 }
 
 async function priorSeasonAverage(season: number) {

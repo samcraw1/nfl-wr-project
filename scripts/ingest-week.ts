@@ -17,7 +17,7 @@ import { buildWeeklyRankingRows, buildWeeklyStatsRows } from "@/lib/ingest";
 import { loadDropsWeek } from "@/lib/nflverse/pfrAdvstats";
 import { loadWrWeek } from "@/lib/nflverse/playerStats";
 import { isWeekComplete, loadScheduleWeek } from "@/lib/nflverse/schedules";
-import { wrFormula } from "@/lib/scoring/wrFormula";
+import { wr_formula } from "@/lib/scoring/formula";
 
 async function main() {
   const { season, week, dryRun, force } = parseCli(process.argv.slice(2), { requireWeek: true });
@@ -29,7 +29,7 @@ async function main() {
     loadDropsWeek(season, wk),
   ]);
   const complete = isWeekComplete(schedule);
-  const scored = wrFormula(wrStats, drops);
+  const scored = wr_formula(wrStats, drops);
 
   console.log(
     `\n${season} week ${wk}: ${wrStats.length} WRs, ${schedule.length} games, complete=${complete}\n`,

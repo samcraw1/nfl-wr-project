@@ -11,6 +11,9 @@ import { getClient, selectAll, unwrap } from "@/lib/db/client";
 import { getWeeklySeasons, weeklyRankingsExist } from "@/lib/db/reads";
 import { matchesNameAndThresholds, searchLiveWrsByName, type StatThresholds } from "@/lib/live";
 import type { LiveRow } from "@/lib/types";
+// @ts-expect-error The JavaScript module has no declaration file.
+import HashTable from "@/lib/hashTable";
+
 
 export interface SeasonSearchRow {
   player_display_name: string;
@@ -51,20 +54,20 @@ export async function searchWrsByName(
     return searchWeeklyWrsByName(name, season, week, thresholds);
   }
 
-  const stored = unwrap(
-    await getClient()
-      .from("season_rankings")
-      .select(
-        "player_display_name, season, total_score, receptions, receiving_yards, receiving_tds",
-      )
-      .eq("season", season)
-      .ilike("player_display_name", `%${name}%`)
-      .gte("receiving_yards", minReceivingYards)
-      .gte("receiving_tds", minReceivingTds)
-      .gte("receptions", minReceptions)
-      .order("total_score", { ascending: false }),
+ const table = await buildSeasonTable(season);
+      // the table goes here?
+
+ const matches = table.searchPartial(name);
+
+ const stored = matches
+  .map(({ row }: { row: SeasonSearchRow }) => row)
+  .filter((row: SeasonSearchRow) =>
+    (row.receiving_yards ?? 0) >= minReceivingYards &&
+    (row.receiving_tds ?? 0) >= minReceivingTds &&
+    (row.receptions ?? 0) >= minReceptions
   );
-  if (stored.length > 0) return stored;
+
+ if(stored.length > 0 ) return stored;
 
   if ((await getWeeklySeasons()).includes(season)) {
     return searchSeasonToDateByName(name, season, thresholds);
@@ -93,6 +96,7 @@ export async function aggregateSeasonFromWeekly(season: number): Promise<SeasonS
         .range(from, to),
     ),
   ]);
+
   const statsByKey = new Map(stats.map((s) => [`${s.player_id}|${s.week}`, s]));
 
   const totals = new Map<
@@ -134,6 +138,25 @@ export async function aggregateSeasonFromWeekly(season: number): Promise<SeasonS
     receiving_yards: e.receiving_yards,
     receiving_tds: e.receiving_tds,
   }));
+}
+
+/** Every player in a season's season_rankings, keyed by display name. */
+async function buildSeasonTable(season: number) {
+  const rows = await selectAll((from, to) =>
+    getClient()
+      .from("season_rankings")
+      .select("player_display_name, season, total_score, receptions, receiving_yards, receiving_tds")
+      .eq("season", season)
+      .range(from, to),
+  );
+
+  const table = new HashTable();
+
+  for (const row of rows) {
+    table.insert(row.player_display_name, row);
+  }
+
+  return table;
 }
 
 async function searchSeasonToDateByName(

@@ -42,7 +42,7 @@ src/app/                 Next.js routes: dashboard page, search server action, /
 src/components/          Scoreboard banner, WR search panel, generic rankings table
 src/lib/config.ts        Pinned season/week constants the dashboard shows
 src/lib/types.ts         Row shapes shared by loader, scoring and scripts
-src/lib/scoring/         tiers (point functions), wrFormula, prediction, season average, opponent (experimental)
+src/lib/scoring/         formula (point functions + wr_formula), prediction, season average, opponent (experimental)
 src/lib/nflverse/        Fetch + decode nflverse release files (parquet via hyparquet, CSV)
 src/lib/live.ts          Score an in-progress week straight from nflverse
 src/lib/espn/            ESPN scoreboard fetch + parse
