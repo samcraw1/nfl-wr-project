@@ -4,13 +4,13 @@
  */
 import { loadDropsWeek } from "@/lib/nflverse/pfrAdvstats";
 import { loadWrWeek } from "@/lib/nflverse/playerStats";
-import { sortByScoreDesc, wrFormula } from "@/lib/scoring/wrFormula";
+import { sortByScoreDesc, wr_formula } from "@/lib/scoring/formula";
 import type { LiveRow, ScoredRow } from "@/lib/types";
 import { TOP_N } from "@/lib/config";
 
 export async function loadScoredWrWeek(season: number, week: number): Promise<ScoredRow[]> {
   const [wr, drops] = await Promise.all([loadWrWeek(season, week), loadDropsWeek(season, week)]);
-  return wrFormula(wr, drops);
+  return wr_formula(wr, drops);
 }
 
 /**

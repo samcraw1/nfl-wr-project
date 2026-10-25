@@ -101,8 +101,7 @@ nfl-wr-project/
 │   └── lib/
 │       ├── types.ts             WrWeekRow, DropsRow, ScheduleGame, ScoredRow, …
 │       ├── scoring/
-│       │   ├── tiers.ts         ← formula.py point functions (pure)
-│       │   ├── wrFormula.ts     ← formula.py wr_formula
+│       │   ├── formula.ts       ← formula.py (tiers + wr_formula)
 │       │   ├── prediction.ts    ← prediction.py predictor functions (pure)
 │       │   └── opponent.ts      ← opponent.py (port, still unused, or drop — see §7)
 │       ├── nflverse/
@@ -159,7 +158,7 @@ the ESPN call and give the live-week path a similar bound.
 
 ## 5. Module-by-module port notes
 
-### `formula.py` → `lib/scoring/tiers.ts`, `wrFormula.ts`
+### `formula.py` → `lib/scoring/formula.ts`
 
 - Each `*_points` function ports verbatim as `(x: number) => number`. Keep every
   threshold exactly (`>=` vs `>`, the `-3/-1` drop penalties, the unreachable
@@ -183,7 +182,7 @@ player_display_name`, missing → 0), sum into `total_score`, sort descending.
   that keeps only players present in **every** frame (that is the current
   behaviour: rookies / returning players are dropped), plus thin named wrappers
   so intent stays readable.
-- `calculate_2025_season_score_lol` → `seasonAverage(season)`: run `wrFormula`
+- `calculate_2025_season_score_lol` → `seasonAverage(season)`: run `wr_formula`
   per week over REG+POST, then per player average `total_score` and sum
   `receptions / receiving_yards / receiving_tds`. Parameterise the season.
 - The module-level side effects (computing and upserting week‑2 2026 predictions

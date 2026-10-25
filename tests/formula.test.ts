@@ -1,13 +1,13 @@
 import { describe, expect, it } from "vitest";
-import { wrFormula } from "@/lib/scoring/wrFormula";
+import { wr_formula } from "@/lib/scoring/formula";
 import { toCurrentWeekScoreRows } from "@/lib/live";
 import { byScoreThenName, expectNonIncreasing, loadWeek, WEEK_FIXTURES } from "./helpers";
 
-describe("wrFormula matches legacy formula.wr_formula", () => {
+describe("wr_formula matches legacy formula.wr_formula", () => {
   for (const name of WEEK_FIXTURES) {
     it(name, () => {
       const fx = loadWeek(name);
-      const scored = wrFormula(fx.wr_stats, fx.drops);
+      const scored = wr_formula(fx.wr_stats, fx.drops);
 
       expect(scored).toHaveLength(fx.scored.length);
       expectNonIncreasing(scored.map((r) => r.total_score));
@@ -24,7 +24,7 @@ describe("toCurrentWeekScoreRows matches legacy live._to_current_week_score_dict
   for (const name of WEEK_FIXTURES) {
     it(name, () => {
       const fx = loadWeek(name);
-      const live = toCurrentWeekScoreRows(fx.season, fx.week, wrFormula(fx.wr_stats, fx.drops));
+      const live = toCurrentWeekScoreRows(fx.season, fx.week, wr_formula(fx.wr_stats, fx.drops));
 
       expect(live).toHaveLength(fx.live_rows.length);
       expect(live.map((r) => r.rank)).toEqual(live.map((_, i) => i + 1));
@@ -54,17 +54,17 @@ describe("toCurrentWeekScoreRows matches legacy live._to_current_week_score_dict
   }
 });
 
-describe("wrFormula edge cases", () => {
+describe("wr_formula edge cases", () => {
   const base = loadWeek("2025-w1");
   const one = base.wr_stats[0]!;
 
   it("gives 0 drop points when the player has no PFR row", () => {
-    const [row] = wrFormula([one], []);
+    const [row] = wr_formula([one], []);
     expect(row?.receiving_drop_points).toBe(0);
   });
 
   it("treats a null receiving_drop as 0 drops", () => {
-    const [row] = wrFormula(
+    const [row] = wr_formula(
       [one],
       [
         {
@@ -85,7 +85,7 @@ describe("wrFormula edge cases", () => {
       week: one.week,
       receiving_drop,
     }));
-    const rows = wrFormula([one], drops);
+    const rows = wr_formula([one], drops);
     expect(rows.map((r) => r.receiving_drop_points).sort((a, b) => a - b)).toEqual([-3, -1]);
   });
 });

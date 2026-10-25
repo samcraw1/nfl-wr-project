@@ -40,7 +40,7 @@ export interface ScheduleGame {
   result: number | null;
 }
 
-/** Output of `wrFormula`: the raw stats it scored, each tier result, and the sum. */
+/** Output of `wr_formula`: the raw stats it scored, each tier result, and the sum. */
 export interface ScoredRow {
   player_display_name: string;
   receiving_yards_after_catch: number;

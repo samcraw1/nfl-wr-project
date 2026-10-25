@@ -1,12 +1,12 @@
 import { describe, expect, it } from "vitest";
 import { buildWeeklyRankingRows, buildWeeklyStatsRows, nameToPlayerId } from "@/lib/ingest";
-import { wrFormula } from "@/lib/scoring/wrFormula";
+import { wr_formula } from "@/lib/scoring/formula";
 import { SCORE_BREAKDOWN_KEYS } from "@/lib/types";
 import { loadWeek } from "./helpers";
 
 describe("ingestion row builders (legacy wr.py)", () => {
   const fx = loadWeek("2026-w1");
-  const scored = wrFormula(fx.wr_stats, fx.drops);
+  const scored = wr_formula(fx.wr_stats, fx.drops);
 
   it("weekly_wr_stats rows carry drops joined on name, 0 when absent", () => {
     const rows = buildWeeklyStatsRows(fx.wr_stats, fx.drops);
